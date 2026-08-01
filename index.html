@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GIPHY - Be Animated | GIFs, Stickers, Clips & Visual Culture Stories</title>
+  <title>GIFS.QD - Be Animated | GIFs, Stickers, Clips & Visual Culture Stories</title>
   <meta name="description" content="Search, discover, share, and create animated GIFs, transparent stickers, and short clips. Explore 5 featured in-depth stories on internet visual culture.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
@@ -19,8 +19,27 @@
     <header class="header">
       <div class="nav-top">
         <a href="#" id="logo-home-link" class="logo-container">
-          <div class="logo-cube"></div>
-          <span class="logo-text">GIPHY</span>
+          <div class="logo-badge" title="GIFS.QD - Be Animated">
+            <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="qdLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00ff99" />
+                  <stop offset="33%" stop-color="#00ccff" />
+                  <stop offset="66%" stop-color="#9933ff" />
+                  <stop offset="100%" stop-color="#ff6699" />
+                </linearGradient>
+                <linearGradient id="qdInnerGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#fff35c" />
+                  <stop offset="100%" stop-color="#ff6699" />
+                </linearGradient>
+              </defs>
+              <rect x="5" y="5" width="90" height="90" rx="22" fill="url(#qdLogoGrad)" />
+              <path d="M28 28H72V72H28V28Z" fill="#121212" rx="8"/>
+              <path d="M38 34L68 50L38 66V34Z" fill="url(#qdInnerGrad)" />
+              <circle cx="70" cy="70" r="10" fill="#00ff99" />
+            </svg>
+          </div>
+          <span class="logo-text">GIFS<span class="logo-accent">.QD</span></span>
         </a>
 
         <div class="nav-actions">
