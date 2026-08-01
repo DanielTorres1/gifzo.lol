@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GIPHY - Be Animated | GIFs, Stickers, Clips & Visual Culture Stories</title>
+  <meta name="description" content="Search, discover, share, and create animated GIFs, transparent stickers, and short clips. Explore 5 featured in-depth stories on internet visual culture.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Top Signature Giphy Rainbow Bar -->
+  <div class="top-rainbow-bar"></div>
+
+  <div class="app-container">
+
+    <!-- Header & Navigation -->
+    <header class="header">
+      <div class="nav-top">
+        <a href="#" id="logo-home-link" class="logo-container">
+          <div class="logo-cube"></div>
+          <span class="logo-text">GIPHY</span>
+        </a>
+
+        <div class="nav-actions">
+          <button id="btn-create-gif" class="btn btn-gradient">
+            <span>⚡ Create</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Search Bar -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <input 
+            type="text" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="Search all the GIFs, Stickers, Clips and Stories..." 
+            autocomplete="off"
+            aria-label="Search GIFs"
+          />
+          <button id="search-clear-btn" class="search-clear-btn" title="Clear Search">✕</button>
+          <button id="search-btn" class="search-btn" title="Search">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          </button>
+        </div>
+        
+        <!-- Autocomplete Suggestions Dropdown -->
+        <div id="search-suggestions" class="search-suggestions"></div>
+      </div>
+
+      <!-- Trending Category Pills Bar -->
+      <div id="trending-tags-bar" class="trending-tags-bar"></div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <div class="tabs-group">
+        <button class="tab-btn active" data-tab="gifs">GIFs</button>
+        <button class="tab-btn" data-tab="stickers">Stickers</button>
+        <button class="tab-btn" data-tab="clips">Clips</button>
+        <button class="tab-btn" data-tab="stories">
+          Stories <span class="tab-badge">5 Articles</span>
+        </button>
+        <button class="tab-btn" data-tab="favorites">Favorites</button>
+      </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+      <!-- Media Grid View (GIFs, Stickers, Clips, Favorites) -->
+      <section id="media-view" class="view-section active">
+        <div class="section-header">
+          <h2 id="view-section-title" class="section-title">
+            <svg viewBox="0 0 24 24"><path d="M16 6l1.41 1.41L13.83 11H20v2h-6.17l3.58 3.59L16 18l-6-6z"/></svg>
+            Trending GIFs
+          </h2>
+        </div>
+        <div id="media-masonry-grid" class="media-masonry-grid"></div>
+      </section>
+
+      <!-- Stories / Articles Section -->
+      <section id="stories-view" class="view-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            📚 GIPHY Stories & Internet Visual Culture
+          </h2>
+        </div>
+        
+        <!-- Articles Cards Grid -->
+        <div id="stories-grid" class="stories-grid"></div>
+
+        <!-- Single Article Reader View -->
+        <div id="article-reader-view" class="article-reader-view" style="display: none;"></div>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- GIF Detail Lightbox Modal -->
+  <div id="modal-backdrop" class="modal-backdrop">
+    <div class="modal-card">
+      <button id="close-detail-modal" class="modal-close-btn" title="Close">✕</button>
+      <div id="modal-card-body" style="display: contents;"></div>
+    </div>
+  </div>
+
+  <!-- Upload / Create GIF Modal -->
+  <div id="upload-modal-backdrop" class="modal-backdrop">
+    <div class="modal-card" style="max-width: 580px; grid-template-columns: 1fr;">
+      <button id="close-upload-modal" class="modal-close-btn" title="Close">✕</button>
+      <div class="upload-modal-content">
+        <h2 class="modal-title" style="color: var(--neon-cyan);">⚡ Create / Upload GIF</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Add a custom animated GIF URL to your local collection.</p>
+        
+        <form id="upload-form">
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label class="form-label" for="upload-title">GIF Title</label>
+            <input type="text" id="upload-title" class="form-input" placeholder="e.g. Cyberpunk Cat Dance" required />
+          </div>
+
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label class="form-label" for="upload-url">Image / GIF URL</label>
+            <input type="url" id="upload-url" class="form-input" placeholder="https://media.giphy.com/media/..." required />
+          </div>
+
+          <div class="form-group" style="margin-bottom: 16px;">
+            <label class="form-label" for="upload-category">Category</label>
+            <select id="upload-category" class="form-input">
+              <option value="Reactions">Reactions</option>
+              <option value="Memes">Memes</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Gaming">Gaming</option>
+              <option value="Anime">Anime</option>
+              <option value="Artists">Artists</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 24px;">
+            <label class="form-label" for="upload-tags">Tags (Comma Separated)</label>
+            <input type="text" id="upload-tags" class="form-input" placeholder="funny, cat, dance, cyber" />
+          </div>
+
+          <button type="submit" class="btn btn-gradient" style="width: 100%; justify-content: center; padding: 14px;">
+            Publish GIF Loop
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Application Scripts -->
+  <script src="articles.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
