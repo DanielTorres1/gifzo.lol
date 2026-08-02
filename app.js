@@ -254,8 +254,9 @@ function bindEvents() {
   });
 
   // Open Upload Modal
-  document.getElementById('btn-create-gif').addEventListener('click', openUploadModal);
-  document.getElementById('close-upload-modal').addEventListener('click', closeUploadModal);
+  const btnCreateGif = document.getElementById('btn-create-gif');
+  if (btnCreateGif) btnCreateGif.addEventListener('click', openUploadModal);
+  document.getElementById('close-upload-modal')?.addEventListener('click', closeUploadModal);
 
   // Close Detail Modal
   document.getElementById('close-detail-modal').addEventListener('click', closeModal);
