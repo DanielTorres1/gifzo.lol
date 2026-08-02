@@ -1,5 +1,5 @@
 /**
- * GIPHY Clone Main Application Logic
+ * Gifzo Main Application Logic
  * Implements masonry feed, search, category filters, detail modal, 
  * upload modal, local storage favorites, and article reader.
  */
@@ -9,8 +9,8 @@ const state = {
   activeTab: 'gifs', // 'gifs', 'stickers', 'clips', 'stories', 'favorites'
   activeCategory: 'All',
   searchQuery: '',
-  favorites: JSON.parse(localStorage.getItem('giphy_favorites') || '[]'),
-  uploadedItems: JSON.parse(localStorage.getItem('giphy_uploaded') || '[]'),
+  favorites: JSON.parse(localStorage.getItem('gifzo_favorites') || localStorage.getItem('giphy_favorites') || '[]'),
+  uploadedItems: JSON.parse(localStorage.getItem('gifzo_uploaded') || localStorage.getItem('giphy_uploaded') || '[]'),
   activeArticle: null,
   activeMediaModal: null
 };
@@ -476,7 +476,7 @@ function createGifCard(item) {
 
   const user = document.createElement('div');
   user.className = 'gif-card-user';
-  user.textContent = `@${item.user || 'GiphyCreator'}`;
+  user.textContent = `@${item.user || 'GifzoCreator'}`;
 
   info.appendChild(title);
   info.appendChild(user);
@@ -737,7 +737,7 @@ function openDetailModal(item) {
 
   const userName = document.createElement('span');
   userName.className = 'modal-user-name';
-  userName.textContent = `@${item.user || 'GiphyArtist'}`;
+  userName.textContent = `@${item.user || 'GifzoArtist'}`;
 
   userRow.appendChild(avatar);
   userRow.appendChild(userName);
@@ -775,7 +775,7 @@ function openDetailModal(item) {
   const embedGroup = document.createElement('div');
   embedGroup.className = 'share-input-group';
 
-  const embedCode = `<iframe src="${item.url}" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`;
+  const embedCode = `<iframe src="${item.url}" width="480" height="360" frameBorder="0" class="gifzo-embed" allowFullScreen></iframe>`;
 
   const embedInput = document.createElement('input');
   embedInput.className = 'share-input';
@@ -855,7 +855,7 @@ document.getElementById('upload-form').addEventListener('submit', (e) => {
   };
 
   state.uploadedItems.unshift(newGif);
-  localStorage.setItem('giphy_uploaded', JSON.stringify(state.uploadedItems));
+  localStorage.setItem('gifzo_uploaded', JSON.stringify(state.uploadedItems));
 
   closeUploadModal();
   document.getElementById('upload-form').reset();
@@ -873,7 +873,7 @@ function toggleFavorite(id) {
     state.favorites.push(id);
     showToast('Added to your favorite loops! ❤️');
   }
-  localStorage.setItem('giphy_favorites', JSON.stringify(state.favorites));
+  localStorage.setItem('gifzo_favorites', JSON.stringify(state.favorites));
 }
 
 // Toast Notifications

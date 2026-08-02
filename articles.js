@@ -1,5 +1,5 @@
 /**
- * Featured Articles for GIPHY Clone
+ * Featured Articles for Gifzo
  * Each article is strictly between 300 and 400 words.
  */
 
