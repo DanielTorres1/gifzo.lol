@@ -381,16 +381,17 @@ function cacheDOMElements() {
 // Bind Event Listeners
 function bindEvents() {
   // Search Events
-  searchInput.addEventListener('input', handleSearchInput);
-  searchBtn.addEventListener('click', executeSearch);
-  searchClearBtn.addEventListener('click', clearSearch);
-  
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      executeSearch();
-      suggestionsBox.classList.remove('active');
-    }
-  });
+  if (searchInput) {
+    searchInput.addEventListener('input', handleSearchInput);
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        executeSearch();
+        suggestionsBox?.classList.remove('active');
+      }
+    });
+  }
+  searchBtn?.addEventListener('click', executeSearch);
+  searchClearBtn?.addEventListener('click', clearSearch);
 
   // Tab Switching
   navTabs.forEach(tab => {
@@ -416,8 +417,8 @@ function bindEvents() {
     e.preventDefault();
     state.searchQuery = '';
     state.activeCategory = 'All';
-    searchInput.value = '';
-    searchClearBtn.style.display = 'none';
+    if (searchInput) searchInput.value = '';
+    if (searchClearBtn) searchClearBtn.style.display = 'none';
     switchTab('stories');
   });
 
