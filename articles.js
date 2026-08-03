@@ -38,7 +38,7 @@ Today, the GIF sits directly at the intersection of technology, entertainment, a
     authorTitle: "Media & Semiotics Researcher",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
     coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80",
-    embeddedGif: "https://media.giphy.com/media/3o7TKsjRrfIPjei1uU/giphy.gif",
+    embeddedGif: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
     tags: ["Psychology", "Reaction GIFs", "Messaging", "Empathy", "Social Media"],
     content: `Text-based digital communication suffers from a fundamental human limitation: it completely strips away physical body language, facial expressions, vocal inflection, and subtle micro-gestures. When sending a plain text message, critical emotional nuances can easily be lost or misconstrued, frequently resulting in awkward misunderstandings or unintended interpersonal tension. While static emojis provided an initial solution by introducing basic emotion symbols into text fields, the global rise of the reaction GIF truly revolutionized digital conversation by injecting real human performance directly into chat windows.
 

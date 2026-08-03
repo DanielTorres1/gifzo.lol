@@ -6,7 +6,7 @@
 
 // Global App State
 const state = {
-  activeTab: 'gifs', // 'gifs', 'stickers', 'clips', 'stories', 'favorites'
+  activeTab: 'stories', // 'stories', 'gifs', 'stickers'
   activeCategory: 'All',
   searchQuery: '',
   favorites: JSON.parse(localStorage.getItem('gifzo_favorites') || localStorage.getItem('giphy_favorites') || '[]'),
@@ -37,7 +37,7 @@ const INITIAL_CATALOG = [
     category: "Memes",
     user: "PixelPaws",
     userAvatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/3o7TKsjRrfIPjei1uU/giphy.gif",
+    url: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
     width: 500,
     height: 280,
     tags: ["cat", "work", "typing", "coding", "fast"]
@@ -85,7 +85,7 @@ const INITIAL_CATALOG = [
     category: "Anime",
     user: "LoFiVibes",
     userAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/l0HlMId846M9Z4yxa/giphy.gif",
+    url: "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif",
     width: 480,
     height: 270,
     tags: ["anime", "rain", "lofi", "coffee", "chill"]
@@ -97,7 +97,7 @@ const INITIAL_CATALOG = [
     category: "Sports",
     user: "HoopDreams",
     userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/xT9IgAIk42i6Xh7L16/giphy.gif",
+    url: "https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif",
     width: 480,
     height: 360,
     tags: ["basketball", "dunk", "sports", "fire", "hype"]
@@ -109,7 +109,7 @@ const INITIAL_CATALOG = [
     category: "Artists",
     user: "MotionLab",
     userAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/3o6Zt8rGMqVfbcpxxS/giphy.gif",
+    url: "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif",
     width: 400,
     height: 400,
     tags: ["glitch", "abstract", "art", "neon", "loop"]
@@ -123,7 +123,7 @@ const INITIAL_CATALOG = [
     category: "Stickers",
     user: "StickerCentral",
     userAvatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/3o7TKSjRrfIPjei1uU/giphy.gif",
+    url: "https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif",
     width: 350,
     height: 350,
     tags: ["heart", "sparkle", "love", "neon", "sticker"]
@@ -177,6 +177,174 @@ const INITIAL_CATALOG = [
     width: 480,
     height: 270,
     tags: ["clip", "racing", "speed", "scifi", "gaming"]
+  },
+  {
+    id: "g9",
+    type: "gifs",
+    title: "Super Saiyan Power Up Transformation",
+    category: "Anime",
+    user: "DBZFanatic",
+    userAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif",
+    width: 480,
+    height: 360,
+    tags: ["anime", "dbz", "powerup", "energy", "saiyan"]
+  },
+  {
+    id: "g10",
+    type: "gifs",
+    title: "Mind Blown Fireworks Brain Explosion",
+    category: "Reactions",
+    user: "BrainMelt",
+    userAvatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+    width: 480,
+    height: 360,
+    tags: ["mindblown", "fireworks", "boom", "wow", "reaction"]
+  },
+  {
+    id: "g11",
+    type: "gifs",
+    title: "Hilarious Cat Keyboard Coding Sprint",
+    category: "Memes",
+    user: "DevCat",
+    userAvatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+    width: 500,
+    height: 300,
+    tags: ["cat", "coding", "keyboard", "meme", "work"]
+  },
+  {
+    id: "g12",
+    type: "gifs",
+    title: "Grumpy Cat Judgmental Stare",
+    category: "Reactions",
+    user: "GrumpyCat",
+    userAvatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif",
+    width: 450,
+    height: 320,
+    tags: ["grumpy", "cat", "stare", "disapproval", "reaction"]
+  },
+  {
+    id: "s4",
+    type: "stickers",
+    title: "Glowing Neon Heart Pulse",
+    category: "Stickers",
+    user: "StickerWiz",
+    userAvatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif",
+    width: 350,
+    height: 350,
+    tags: ["heart", "neon", "sticker", "love", "glow"]
+  },
+  {
+    id: "s5",
+    type: "stickers",
+    title: "Dancing Rainbow Taco",
+    category: "Stickers",
+    user: "TacoLovers",
+    userAvatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+    width: 400,
+    height: 400,
+    tags: ["taco", "dance", "rainbow", "food", "sticker"]
+  },
+  {
+    id: "s6",
+    type: "stickers",
+    title: "Neon Basketball Fire Flame Loop",
+    category: "Stickers",
+    user: "FlameArt",
+    userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif",
+    width: 400,
+    height: 400,
+    tags: ["basketball", "fire", "flame", "sports", "sticker"]
+  },
+  {
+    id: "c3",
+    type: "clips",
+    title: "Ultra Neon Cyber City Flyby",
+    category: "Gaming",
+    user: "FutureVibes",
+    userAvatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
+    width: 500,
+    height: 280,
+    tags: ["clip", "cyberpunk", "city", "synthwave", "scifi"]
+  },
+  {
+    id: "c4",
+    type: "clips",
+    title: "Stadium Fireworks Celebration",
+    category: "Entertainment",
+    user: "LiveConcerts",
+    userAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/l0HlHFRbmaZtBRhXG/giphy.gif",
+    width: 480,
+    height: 270,
+    tags: ["clip", "fireworks", "stadium", "party", "celebration"]
+  },
+  {
+    id: "g13",
+    type: "gifs",
+    title: "Rickroll Dance Classic Loop",
+    category: "Memes",
+    user: "MemeLegens",
+    userAvatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif",
+    width: 480,
+    height: 360,
+    tags: ["rickroll", "dance", "meme", "classic", "music"]
+  },
+  {
+    id: "g14",
+    type: "gifs",
+    title: "Futuristic Hologram Grid Spin",
+    category: "Artists",
+    user: "HoloArtist",
+    userAvatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
+    width: 450,
+    height: 350,
+    tags: ["hologram", "future", "spin", "artist", "3d"]
+  },
+  {
+    id: "s7",
+    type: "stickers",
+    title: "Party Confetti Explosion Sticker",
+    category: "Stickers",
+    user: "PartyStudio",
+    userAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+    width: 400,
+    height: 400,
+    tags: ["confetti", "party", "celebrate", "sticker", "joy"]
+  },
+  {
+    id: "s8",
+    type: "stickers",
+    title: "Neon LoFi Chill Stars Sticker",
+    category: "Stickers",
+    user: "LoFiSpace",
+    userAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif",
+    width: 380,
+    height: 380,
+    tags: ["stars", "lofi", "chill", "neon", "sticker"]
+  },
+  {
+    id: "c5",
+    type: "clips",
+    title: "Power Energy Pulse Clip",
+    category: "Anime",
+    user: "AnimePower",
+    userAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif",
+    width: 480,
+    height: 270,
+    tags: ["clip", "anime", "energy", "power", "saiyan"]
   }
 ];
 
@@ -250,7 +418,7 @@ function bindEvents() {
     state.activeCategory = 'All';
     searchInput.value = '';
     searchClearBtn.style.display = 'none';
-    switchTab('gifs');
+    switchTab('stories');
   });
 
   // Open Upload Modal
