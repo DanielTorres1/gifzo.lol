@@ -668,6 +668,12 @@ function renderArticlesGrid() {
 
   if (typeof ARTICLES_DATA === 'undefined') return;
 
+  const standardArticles = ARTICLES_DATA.filter(art => !art.isAd);
+  const storiesTabBadge = document.querySelector('.tab-btn[data-tab="stories"] .tab-badge');
+  if (storiesTabBadge) {
+    storiesTabBadge.textContent = `${standardArticles.length} Articles`;
+  }
+
   ARTICLES_DATA.forEach(art => {
     const card = document.createElement('div');
     card.className = 'story-card';
