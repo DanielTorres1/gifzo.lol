@@ -1,5 +1,5 @@
 /**
- * Gifzo Main Application Logic
+ * gifzo.lol Main Application Logic
  * Implements masonry feed, search, category filters, detail modal, 
  * upload modal, local storage favorites, and article reader.
  */
