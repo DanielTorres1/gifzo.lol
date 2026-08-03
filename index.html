@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gifzo.lol - Be Animated | GIFs, Stickers, Clips & Visual Culture Stories</title>
-  <meta name="description" content="Search, discover, share, and create animated GIFs, transparent stickers, and short clips on gifzo.lol. Explore in-depth stories on internet visual culture.">
+  <meta name="description" content="Search, discover, and share animated GIFs, transparent stickers, and short clips on gifzo.lol. Explore in-depth stories on internet visual culture.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='30' fill='%2300ff99'/><text x='50%' y='68%' font-size='60' font-weight='900' text-anchor='middle' fill='%23121212'>G</text></svg>">
 </head>
@@ -117,50 +117,6 @@
     <div class="modal-card">
       <button id="close-detail-modal" class="modal-close-btn" title="Close">✕</button>
       <div id="modal-card-body" style="display: contents;"></div>
-    </div>
-  </div>
-
-  <!-- Upload / Create GIF Modal -->
-  <div id="upload-modal-backdrop" class="modal-backdrop">
-    <div class="modal-card" style="max-width: 580px; grid-template-columns: 1fr;">
-      <button id="close-upload-modal" class="modal-close-btn" title="Close">✕</button>
-      <div class="upload-modal-content">
-        <h2 class="modal-title" style="color: var(--neon-cyan);">⚡ Create / Upload GIF</h2>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Add a custom animated GIF URL to your local collection.</p>
-        
-        <form id="upload-form">
-          <div class="form-group" style="margin-bottom: 16px;">
-            <label class="form-label" for="upload-title">GIF Title</label>
-            <input type="text" id="upload-title" class="form-input" placeholder="e.g. Cyberpunk Cat Dance" required />
-          </div>
-
-          <div class="form-group" style="margin-bottom: 16px;">
-            <label class="form-label" for="upload-url">Image / GIF URL</label>
-            <input type="url" id="upload-url" class="form-input" placeholder="https://media.giphy.com/media/..." required />
-          </div>
-
-          <div class="form-group" style="margin-bottom: 16px;">
-            <label class="form-label" for="upload-category">Category</label>
-            <select id="upload-category" class="form-input">
-              <option value="Reactions">Reactions</option>
-              <option value="Memes">Memes</option>
-              <option value="Entertainment">Entertainment</option>
-              <option value="Gaming">Gaming</option>
-              <option value="Anime">Anime</option>
-              <option value="Artists">Artists</option>
-            </select>
-          </div>
-
-          <div class="form-group" style="margin-bottom: 24px;">
-            <label class="form-label" for="upload-tags">Tags (Comma Separated)</label>
-            <input type="text" id="upload-tags" class="form-input" placeholder="funny, cat, dance, cyber" />
-          </div>
-
-          <button type="submit" class="btn btn-gradient" style="width: 100%; justify-content: center; padding: 14px;">
-            Publish GIF Loop
-          </button>
-        </form>
-      </div>
     </div>
   </div>
 
