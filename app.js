@@ -25,7 +25,7 @@ const INITIAL_CATALOG = [
     category: "Reactions",
     user: "CosmicVisuals",
     userAvatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+    url: "https://media.giphy.com/media/l0ErTYG23Hyn67Fxm/giphy.gif",
     width: 480,
     height: 360,
     tags: ["mind blown", "space", "galaxy", "wow", "explosion"]
@@ -37,7 +37,7 @@ const INITIAL_CATALOG = [
     category: "Memes",
     user: "PixelPaws",
     userAvatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+    url: "https://media.giphy.com/media/1SymAX7raq13OvyzLg/giphy.gif",
     width: 500,
     height: 280,
     tags: ["cat", "work", "typing", "coding", "fast"]
@@ -49,7 +49,7 @@ const INITIAL_CATALOG = [
     category: "Gaming",
     user: "SynthwaveMaster",
     userAvatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
+    url: "https://media.giphy.com/media/gv7OG450o4PeM/giphy.gif",
     width: 480,
     height: 360,
     tags: ["cyberpunk", "synthwave", "80s", "neon", "drive"]
@@ -61,7 +61,7 @@ const INITIAL_CATALOG = [
     category: "Entertainment",
     user: "CinemaLover",
     userAvatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/l0HlHFRbmaZtBRhXG/giphy.gif",
+    url: "https://media.giphy.com/media/x0qP0643fys3wnt4uP/giphy.gif",
     width: 480,
     height: 270,
     tags: ["popcorn", "movie", "gasp", "drama", "shock"]
@@ -73,7 +73,7 @@ const INITIAL_CATALOG = [
     category: "Reactions",
     user: "PuppyParty",
     userAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif",
+    url: "https://media.giphy.com/media/nn2kmb1lRtpkY/giphy.gif",
     width: 450,
     height: 450,
     tags: ["happy", "dog", "dance", "celebrate", "cute"]
@@ -85,7 +85,7 @@ const INITIAL_CATALOG = [
     category: "Anime",
     user: "LoFiVibes",
     userAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif",
+    url: "https://media.giphy.com/media/kBYniXGn9rSn75AS3l/giphy.gif",
     width: 480,
     height: 270,
     tags: ["anime", "rain", "lofi", "coffee", "chill"]
@@ -97,7 +97,7 @@ const INITIAL_CATALOG = [
     category: "Sports",
     user: "HoopDreams",
     userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif",
+    url: "https://media.giphy.com/media/6u9t67tyN1mV6VMrf7/giphy.gif",
     width: 480,
     height: 360,
     tags: ["basketball", "dunk", "sports", "fire", "hype"]
@@ -109,7 +109,7 @@ const INITIAL_CATALOG = [
     category: "Artists",
     user: "MotionLab",
     userAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif",
+    url: "https://media.giphy.com/media/8PqTcO444vDj2/giphy.gif",
     width: 400,
     height: 400,
     tags: ["glitch", "abstract", "art", "neon", "loop"]
@@ -123,7 +123,7 @@ const INITIAL_CATALOG = [
     category: "Stickers",
     user: "StickerCentral",
     userAvatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif",
+    url: "https://media.giphy.com/media/X8YmZeoAmqRFK/giphy.gif",
     width: 350,
     height: 350,
     tags: ["heart", "sparkle", "love", "neon", "sticker"]
@@ -135,7 +135,7 @@ const INITIAL_CATALOG = [
     category: "Stickers",
     user: "FoodieArt",
     userAvatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+    url: "https://media.giphy.com/media/xUA7b9kNfcKICBrlks/giphy.gif",
     width: 400,
     height: 400,
     tags: ["pizza", "food", "dance", "fun", "sticker"]
@@ -147,7 +147,7 @@ const INITIAL_CATALOG = [
     category: "Stickers",
     user: "TextFx",
     userAvatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/l0HlHFRbmaZtBRhXG/giphy.gif",
+    url: "https://media.giphy.com/media/OpYV9CBVZOb1S/giphy.gif",
     width: 400,
     height: 250,
     tags: ["lol", "laugh", "text", "neon", "sticker"]
@@ -161,7 +161,7 @@ const INITIAL_CATALOG = [
     category: "Entertainment",
     user: "StageLive",
     userAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
+    url: "https://media.giphy.com/media/WIwvGzMSd8jGU/giphy.gif",
     width: 500,
     height: 300,
     tags: ["clip", "concert", "fireworks", "music", "hype"]
@@ -173,7 +173,7 @@ const INITIAL_CATALOG = [
     category: "Gaming",
     user: "CyberRacer",
     userAvatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif",
+    url: "https://media.giphy.com/media/HyOOyynWxMxig/giphy.gif",
     width: 480,
     height: 270,
     tags: ["clip", "racing", "speed", "scifi", "gaming"]
@@ -185,7 +185,7 @@ const INITIAL_CATALOG = [
     category: "Anime",
     user: "DBZFanatic",
     userAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif",
+    url: "https://media.giphy.com/media/xTiTnBMEz7zAKs57LG/giphy.gif",
     width: 480,
     height: 360,
     tags: ["anime", "dbz", "powerup", "energy", "saiyan"]
@@ -197,7 +197,7 @@ const INITIAL_CATALOG = [
     category: "Reactions",
     user: "BrainMelt",
     userAvatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+    url: "https://media.giphy.com/media/fqhKXT4turqxq8NaCs/giphy.gif",
     width: 480,
     height: 360,
     tags: ["mindblown", "fireworks", "boom", "wow", "reaction"]
@@ -209,7 +209,7 @@ const INITIAL_CATALOG = [
     category: "Memes",
     user: "DevCat",
     userAvatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+    url: "https://media.giphy.com/media/lcwrrsfs4Px6w/giphy.gif",
     width: 500,
     height: 300,
     tags: ["cat", "coding", "keyboard", "meme", "work"]
@@ -221,7 +221,7 @@ const INITIAL_CATALOG = [
     category: "Reactions",
     user: "GrumpyCat",
     userAvatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif",
+    url: "https://media.giphy.com/media/3o7TKJLO3D4kUgpa6I/giphy.gif",
     width: 450,
     height: 320,
     tags: ["grumpy", "cat", "stare", "disapproval", "reaction"]
@@ -233,7 +233,7 @@ const INITIAL_CATALOG = [
     category: "Stickers",
     user: "StickerWiz",
     userAvatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif",
+    url: "https://media.giphy.com/media/t6JFpRFhBTkVib7ju1/giphy.gif",
     width: 350,
     height: 350,
     tags: ["heart", "neon", "sticker", "love", "glow"]
@@ -245,7 +245,7 @@ const INITIAL_CATALOG = [
     category: "Stickers",
     user: "TacoLovers",
     userAvatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+    url: "https://media.giphy.com/media/11shDO8NnZDYpa/giphy.gif",
     width: 400,
     height: 400,
     tags: ["taco", "dance", "rainbow", "food", "sticker"]
@@ -257,7 +257,7 @@ const INITIAL_CATALOG = [
     category: "Stickers",
     user: "FlameArt",
     userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif",
+    url: "https://media.giphy.com/media/7iTz3LdCBJJ1C/giphy.gif",
     width: 400,
     height: 400,
     tags: ["basketball", "fire", "flame", "sports", "sticker"]
@@ -269,7 +269,7 @@ const INITIAL_CATALOG = [
     category: "Gaming",
     user: "FutureVibes",
     userAvatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
+    url: "https://media.giphy.com/media/XfT1Xb2O2ShHy/giphy.gif",
     width: 500,
     height: 280,
     tags: ["clip", "cyberpunk", "city", "synthwave", "scifi"]
@@ -281,7 +281,7 @@ const INITIAL_CATALOG = [
     category: "Entertainment",
     user: "LiveConcerts",
     userAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/l0HlHFRbmaZtBRhXG/giphy.gif",
+    url: "https://media.giphy.com/media/hXD3cypLkycW1hQTFz/giphy.gif",
     width: 480,
     height: 270,
     tags: ["clip", "fireworks", "stadium", "party", "celebration"]
@@ -293,7 +293,7 @@ const INITIAL_CATALOG = [
     category: "Memes",
     user: "MemeLegens",
     userAvatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif",
+    url: "https://media.giphy.com/media/fallYu2VWPHZC/giphy.gif",
     width: 480,
     height: 360,
     tags: ["rickroll", "dance", "meme", "classic", "music"]
@@ -305,7 +305,7 @@ const INITIAL_CATALOG = [
     category: "Artists",
     user: "HoloArtist",
     userAvatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
+    url: "https://media.giphy.com/media/pt0EKLDJmVvlS/giphy.gif",
     width: 450,
     height: 350,
     tags: ["hologram", "future", "spin", "artist", "3d"]
@@ -317,7 +317,7 @@ const INITIAL_CATALOG = [
     category: "Stickers",
     user: "PartyStudio",
     userAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+    url: "https://media.giphy.com/media/Af7ap9r7NzJJe/giphy.gif",
     width: 400,
     height: 400,
     tags: ["confetti", "party", "celebrate", "sticker", "joy"]
@@ -329,7 +329,7 @@ const INITIAL_CATALOG = [
     category: "Stickers",
     user: "LoFiSpace",
     userAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif",
+    url: "https://media.giphy.com/media/xoRaAV8X227rG/giphy.gif",
     width: 380,
     height: 380,
     tags: ["stars", "lofi", "chill", "neon", "sticker"]
@@ -341,7 +341,7 @@ const INITIAL_CATALOG = [
     category: "Anime",
     user: "AnimePower",
     userAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/111ebonMs90YLu/giphy.gif",
+    url: "https://media.giphy.com/media/3oKIP8kNuTJJL3zT0I/giphy.gif",
     width: 480,
     height: 270,
     tags: ["clip", "anime", "energy", "power", "saiyan"]
