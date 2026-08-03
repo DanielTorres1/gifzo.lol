@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
   cacheDOMElements();
   bindEvents();
   renderTrendingTags();
-  renderActiveView();
+  switchTab('stories');
 });
 
 // Cache References
