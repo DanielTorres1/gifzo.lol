@@ -913,59 +913,44 @@ function openDetailModal(item) {
   userRow.appendChild(userName);
   infoSide.appendChild(userRow);
 
-  // Share & Embed Controls
+  // Share & Embed Action Buttons
   const shareBox = document.createElement('div');
   shareBox.className = 'modal-share-box';
 
   const shareLabel = document.createElement('label');
   shareLabel.className = 'form-label';
-  shareLabel.textContent = 'Share GIF & Embed Code';
+  shareLabel.textContent = 'Share & Export Loop';
 
-  // Direct Link Group
-  const linkGroup = document.createElement('div');
-  linkGroup.className = 'share-input-group';
-
-  const linkInput = document.createElement('input');
-  linkInput.className = 'share-input';
-  linkInput.readOnly = true;
-  linkInput.value = item.url;
+  const actionsGroup = document.createElement('div');
+  actionsGroup.style.display = 'flex';
+  actionsGroup.style.gap = '10px';
+  actionsGroup.style.marginTop = '8px';
 
   const copyLinkBtn = document.createElement('button');
   copyLinkBtn.className = 'btn btn-gradient btn-sm';
-  copyLinkBtn.textContent = 'Copy Link';
+  copyLinkBtn.style.flex = '1';
+  copyLinkBtn.style.justifyContent = 'center';
+  copyLinkBtn.textContent = '🔗 Copy Direct Link';
   copyLinkBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(item.url);
     showToast('GIF link copied to clipboard!');
   });
 
-  linkGroup.appendChild(linkInput);
-  linkGroup.appendChild(copyLinkBtn);
-
-  // Embed Code Group
-  const embedGroup = document.createElement('div');
-  embedGroup.className = 'share-input-group';
-
   const embedCode = `<iframe src="${item.url}" width="480" height="360" frameBorder="0" class="gifzo-embed" allowFullScreen></iframe>`;
-
-  const embedInput = document.createElement('input');
-  embedInput.className = 'share-input';
-  embedInput.readOnly = true;
-  embedInput.value = embedCode;
-
   const copyEmbedBtn = document.createElement('button');
   copyEmbedBtn.className = 'btn btn-secondary btn-sm';
-  copyEmbedBtn.textContent = 'Embed';
+  copyEmbedBtn.style.flex = '1';
+  copyEmbedBtn.style.justifyContent = 'center';
+  copyEmbedBtn.textContent = '💻 Copy Embed Code';
   copyEmbedBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(embedCode);
     showToast('Iframe embed code copied!');
   });
 
-  embedGroup.appendChild(embedInput);
-  embedGroup.appendChild(copyEmbedBtn);
-
+  actionsGroup.appendChild(copyLinkBtn);
+  actionsGroup.appendChild(copyEmbedBtn);
   shareBox.appendChild(shareLabel);
-  shareBox.appendChild(linkGroup);
-  shareBox.appendChild(embedGroup);
+  shareBox.appendChild(actionsGroup);
   infoSide.appendChild(shareBox);
 
   // Favorite Button
