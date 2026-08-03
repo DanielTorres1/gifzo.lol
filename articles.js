@@ -27,6 +27,24 @@ During the early Web 1.0 era, GIFs were primarily utilized as decorative website
 Today, the GIF sits directly at the intersection of technology, entertainment, and everyday communication. Billions of looping animations are shared daily across workplace chat tools, private messaging apps, and social platforms. Search engines index millions of tagged loops, empowering users to discover hyper-specific emotional reactions within milliseconds. What originated as a modest bitmapped graphics format for dial-up bulletin boards has transformed into a universal visual dialect. The enduring legacy of the GIF demonstrates how simple digital tools can outlast far more complex technologies when they fulfill our fundamental human desire to connect.`
   },
   {
+    id: "what-do-you-meme-core-game-ad",
+    slug: "what-do-you-meme-core-game-ad",
+    isAd: true,
+    externalUrl: "https://www.amazon.com/WHAT-DO-YOU-MEME-Core/dp/B01MRG7T0D?tag=mentor0c0-20",
+    title: "WHAT DO YOU MEME? Core Game — The Hilarious Adult Party Game for Meme Lovers",
+    subtitle: "Compete with friends and family to create the funniest memes. Features 75 Photo Cards and 360 Caption Cards!",
+    category: "SPONSORED / FEATURED GAME",
+    readTime: "Shop on Amazon ↗",
+    date: "August 3, 2026",
+    author: "Amazon / What Do You Meme?",
+    authorTitle: "Official Party Game",
+    avatar: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=80",
+    coverImage: "https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=1200&auto=format&fit=crop&q=80",
+    embeddedGif: "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif",
+    tags: ["WHAT DO YOU MEME?", "Amazon", "Party Game", "Meme Game", "Card Game"],
+    content: `WHAT DO YOU MEME? Core Game is the legendary adult party game taking meme lovers worldwide by storm. Designed for 3 or more players aged 17 and up, players compete to pair hilarious caption cards with iconic photo cards to create the ultimate meme combinations.`
+  },
+  {
     id: "reaction-gifs-communication",
     slug: "reaction-gifs-communication",
     title: "How Reaction GIFs Changed the Way We Communicate Online",

@@ -729,7 +729,19 @@ function renderArticlesGrid() {
 
     card.appendChild(content);
 
-    card.addEventListener('click', () => renderArticleReader(art));
+    if (art.isAd || art.externalUrl) {
+      card.classList.add('story-card-ad');
+      badge.style.background = 'var(--gradient-cyan)';
+      badge.style.color = '#121212';
+      badge.style.fontWeight = '800';
+      readTime.style.color = 'var(--neon-cyan)';
+      readTime.style.fontWeight = '700';
+      card.addEventListener('click', () => {
+        window.open(art.externalUrl, '_blank', 'noopener,noreferrer');
+      });
+    } else {
+      card.addEventListener('click', () => renderArticleReader(art));
+    }
     storiesGrid.appendChild(card);
   });
 }

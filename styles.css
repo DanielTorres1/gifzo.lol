@@ -637,6 +637,16 @@ body {
   transform: scale(1.06);
 }
 
+.story-card-ad {
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
+}
+
+.story-card-ad:hover {
+  box-shadow: 0 0 28px rgba(0, 255, 153, 0.5), var(--shadow-lg);
+  border-color: #00ccff;
+}
+
 .story-category-badge {
   position: absolute;
   top: 12px;
