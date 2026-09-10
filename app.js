@@ -509,12 +509,230 @@ let searchInput, searchBtn, searchClearBtn, suggestionsBox;
 let navTabs, trendingTagsBar, mediaMasonryGrid, storiesGrid, articleReaderView;
 let modalBackdrop, modalContent, uploadModalBackdrop, toastContainer;
 
+// --- SEO & Structured Data Management ---
+
+function updatePageSEO(title, description, canonicalUrl) {
+  if (title) {
+    document.title = title;
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.content = title;
+    const twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.content = title;
+  }
+
+  if (description) {
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = description;
+
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.content = description;
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.content = description;
+  }
+
+  if (canonicalUrl) {
+    let linkCanonical = document.querySelector('link[rel="canonical"]');
+    if (!linkCanonical) {
+      linkCanonical = document.createElement('link');
+      linkCanonical.rel = 'canonical';
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.href = canonicalUrl;
+
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.content = canonicalUrl;
+  }
+}
+
+function refreshCurrentPageSEO() {
+  if (state.activeArticle) {
+    updatePageSEO(
+      `${state.activeArticle.title} | gifzo.lol`,
+      state.activeArticle.subtitle,
+      `https://gifzo.lol/articles/${state.activeArticle.slug}.html`
+    );
+    return;
+  }
+
+  if (state.activeMediaModal) {
+    updatePageSEO(
+      `${state.activeMediaModal.title} - Animated ${state.activeMediaModal.category} Loop | gifzo.lol`,
+      `Watch, copy and share "${state.activeMediaModal.title}" loop created by @${state.activeMediaModal.user || 'GifzoArtist'}. Category: ${state.activeMediaModal.category}.`,
+      `https://gifzo.lol/?gif=${state.activeMediaModal.id}`
+    );
+    return;
+  }
+
+  if (state.activeTab === 'stories') {
+    updatePageSEO(
+      "gifzo.lol - Be Animated | GIFs, Stickers & Visual Culture Stories",
+      "Search, discover, and share animated GIFs and transparent stickers on gifzo.lol. Explore in-depth stories on internet visual culture, digital semiotics, and loop art.",
+      "https://gifzo.lol/"
+    );
+  } else if (state.activeTab === 'stickers') {
+    updatePageSEO(
+      "Trending Transparent Animated Stickers | gifzo.lol",
+      "Explore transparent background animated stickers for messaging, reaction loops, and visual expression on gifzo.lol.",
+      "https://gifzo.lol/?tab=stickers"
+    );
+  } else if (state.activeTab === 'favorites') {
+    updatePageSEO(
+      "Your Favorite Animated Loops | gifzo.lol",
+      "Saved favorite animated GIFs and looping clips on gifzo.lol.",
+      "https://gifzo.lol/?tab=favorites"
+    );
+  } else {
+    // 'gifs'
+    if (state.searchQuery) {
+      updatePageSEO(
+        `Search: "${state.searchQuery}" Animated GIFs | gifzo.lol`,
+        `Search results for "${state.searchQuery}" animated GIFs and motion clips on gifzo.lol.`,
+        `https://gifzo.lol/?q=${encodeURIComponent(state.searchQuery)}`
+      );
+    } else if (state.activeCategory && state.activeCategory !== 'All') {
+      updatePageSEO(
+        `${state.activeCategory} Animated GIFs & Highlights | gifzo.lol`,
+        `Explore the freshest curated ${state.activeCategory} animated GIFs, high-speed clips, and viral loops on gifzo.lol.`,
+        `https://gifzo.lol/?tab=gifs&category=${state.activeCategory.toLowerCase()}`
+      );
+    } else {
+      updatePageSEO(
+        "Trending Animated GIFs & High-Speed Loops | gifzo.lol",
+        "Search, discover, and share animated GIFs and transparent stickers on gifzo.lol. Explore in-depth stories on internet visual culture.",
+        "https://gifzo.lol/?tab=gifs"
+      );
+    }
+  }
+}
+
+function updateImageGalleryJsonLd(items, galleryTitle) {
+  let scriptTag = document.getElementById('schema-media-gallery');
+  if (!scriptTag) {
+    scriptTag = document.createElement('script');
+    scriptTag.id = 'schema-media-gallery';
+    scriptTag.type = 'application/ld+json';
+    document.head.appendChild(scriptTag);
+  }
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": `${galleryTitle} - gifzo.lol`,
+    "url": window.location.href,
+    "description": `Curated collection of ${items.length} animated loops and digital motion clips on gifzo.lol.`,
+    "itemListElement": items.slice(0, 30).map((item, idx) => ({
+      "@type": "ImageObject",
+      "position": idx + 1,
+      "name": item.title,
+      "caption": `${item.title} - ${item.category} Animated GIF`,
+      "contentUrl": item.url,
+      "thumbnailUrl": item.url,
+      "width": `${item.width || 480} px`,
+      "height": `${item.height || 270} px`,
+      "keywords": (item.tags || []).join(', '),
+      "author": {
+        "@type": "Person",
+        "name": item.user || "GIFZO Creator"
+      }
+    }))
+  };
+
+  scriptTag.textContent = JSON.stringify(schemaData, null, 2);
+}
+
+function updateUrlParams(updateUrl = true) {
+  if (!updateUrl || !window.history || !window.history.replaceState) return;
+  const params = new URLSearchParams();
+
+  if (state.activeArticle) {
+    params.set('article', state.activeArticle.slug);
+  } else if (state.activeMediaModal) {
+    params.set('gif', state.activeMediaModal.id);
+  } else {
+    if (state.activeTab && state.activeTab !== 'stories') {
+      params.set('tab', state.activeTab);
+    }
+    if (state.activeCategory && state.activeCategory !== 'All') {
+      params.set('category', state.activeCategory.toLowerCase());
+    }
+    if (state.searchQuery) {
+      params.set('q', state.searchQuery);
+    }
+  }
+
+  const queryString = params.toString();
+  const newUrl = queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
+  window.history.replaceState({}, '', newUrl);
+}
+
+function handleInitialUrlParams() {
+  const params = new URLSearchParams(window.location.search);
+  const tab = params.get('tab');
+  const cat = params.get('category');
+  const q = params.get('q');
+  const gifId = params.get('gif');
+  const articleSlug = params.get('article');
+
+  if (articleSlug && typeof ARTICLES_DATA !== 'undefined') {
+    const art = ARTICLES_DATA.find(a => a.slug === articleSlug);
+    if (art) {
+      switchTab('stories', false);
+      renderArticleReader(art);
+      return;
+    }
+  }
+
+  if (q) {
+    if (searchInput) searchInput.value = q;
+    state.searchQuery = q;
+    if (searchClearBtn) searchClearBtn.style.display = 'block';
+    switchTab('gifs', false);
+    return;
+  }
+
+  if (cat) {
+    const validCats = ["All", "Reactions", "Entertainment", "Sports", "Stickers", "Artists", "Gaming", "Anime", "Memes"];
+    const matched = validCats.find(c => c.toLowerCase() === cat.toLowerCase());
+    if (matched) {
+      state.activeCategory = matched;
+      if (matched === 'Stickers') {
+        switchTab('stickers', false);
+      } else {
+        switchTab('gifs', false);
+      }
+      return;
+    }
+  }
+
+  if (tab) {
+    if (['stories', 'gifs', 'stickers', 'favorites'].includes(tab)) {
+      switchTab(tab, false);
+      return;
+    }
+  }
+
+  // Default to stories
+  switchTab('stories', false);
+
+  if (gifId) {
+    const item = getCombinedMedia().find(i => i.id === gifId);
+    if (item) {
+      openDetailModal(item);
+    }
+  }
+}
+
 // Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
   cacheDOMElements();
   bindEvents();
   renderTrendingTags();
-  switchTab('stories');
+  handleInitialUrlParams();
 });
 
 // Cache References
@@ -549,10 +767,18 @@ function bindEvents() {
   searchBtn?.addEventListener('click', executeSearch);
   searchClearBtn?.addEventListener('click', clearSearch);
 
+  // Browser History Navigation (Back / Forward SEO support)
+  window.addEventListener('popstate', () => {
+    handleInitialUrlParams();
+  });
+
   // Tab Switching
   navTabs?.forEach(tab => {
     tab.addEventListener('click', (e) => {
       const targetTab = tab.dataset.tab;
+      if (targetTab === 'stories') {
+        state.activeCategory = 'All';
+      }
       switchTab(targetTab);
     });
   });
@@ -573,12 +799,16 @@ function bindEvents() {
     if (cat === 'Stickers') {
       switchTab('stickers');
     } else if (cat === 'All') {
+      refreshCurrentPageSEO();
+      updateUrlParams();
       renderActiveView();
     } else {
       // Media categories: Reactions, Entertainment, Sports, Artists, Gaming, Anime, Memes
       if (state.activeTab !== 'gifs') {
         switchTab('gifs');
       } else {
+        refreshCurrentPageSEO();
+        updateUrlParams();
         renderActiveView();
       }
     }
@@ -687,7 +917,7 @@ function renderTrendingTags() {
 }
 
 // Switch Active View Tab
-function switchTab(tabName) {
+function switchTab(tabName, updateUrl = true) {
   state.activeTab = tabName;
 
   navTabs.forEach(t => {
@@ -705,6 +935,8 @@ function switchTab(tabName) {
   }
 
   syncTrendingPills();
+  refreshCurrentPageSEO();
+  if (updateUrl) updateUrlParams();
   renderActiveView();
 }
 
@@ -744,7 +976,9 @@ function handleSearchInput(e) {
 function executeSearch() {
   state.searchQuery = searchInput.value.trim();
   suggestionsBox.classList.remove('active');
-  if (state.activeTab === 'stories') switchTab('gifs');
+  if (state.activeTab === 'stories') switchTab('gifs', false);
+  refreshCurrentPageSEO();
+  updateUrlParams();
   renderActiveView();
 }
 
@@ -753,6 +987,8 @@ function clearSearch() {
   state.searchQuery = '';
   searchClearBtn.style.display = 'none';
   suggestionsBox.classList.remove('active');
+  refreshCurrentPageSEO();
+  updateUrlParams();
   renderActiveView();
 }
 
@@ -826,24 +1062,50 @@ function renderMediaGrid() {
     return;
   }
 
+  // Inject/Update Schema.org ImageGallery Structured Data for SEO
+  updateImageGalleryJsonLd(items, state.activeCategory === 'All' ? 'Trending Animated GIFs' : `${state.activeCategory} Animated GIFs`);
+
   items.forEach(item => {
     const card = createGifCard(item);
     mediaMasonryGrid.appendChild(card);
   });
 }
 
-// Create Card Element for GIF Masonry
+// Create Card Element for GIF Masonry (Semantic & SEO Microdata)
 function createGifCard(item) {
-  const card = document.createElement('div');
+  const card = document.createElement('figure');
   card.className = 'gif-card';
+  card.setAttribute('itemscope', '');
+  card.setAttribute('itemtype', 'https://schema.org/ImageObject');
 
   const img = document.createElement('img');
   img.src = item.url;
-  img.alt = item.title;
+  img.alt = `${item.title} - ${item.category} Animated GIF Loop`;
+  img.title = item.title;
+  img.width = item.width || 480;
+  img.height = item.height || 270;
   img.loading = 'lazy';
+  img.decoding = 'async';
+  img.setAttribute('itemprop', 'contentUrl');
   card.appendChild(img);
 
-  const overlay = document.createElement('div');
+  // Hidden Schema.org Microdata for SEO Crawlers
+  const metaName = document.createElement('meta');
+  metaName.setAttribute('itemprop', 'name');
+  metaName.content = item.title;
+  card.appendChild(metaName);
+
+  const metaKeywords = document.createElement('meta');
+  metaKeywords.setAttribute('itemprop', 'keywords');
+  metaKeywords.content = (item.tags || []).join(', ');
+  card.appendChild(metaKeywords);
+
+  const metaAuthor = document.createElement('meta');
+  metaAuthor.setAttribute('itemprop', 'author');
+  metaAuthor.content = item.user || 'GifzoCreator';
+  card.appendChild(metaAuthor);
+
+  const overlay = document.createElement('figcaption');
   overlay.className = 'gif-card-overlay';
 
   // Top Actions (Fav & Copy)
@@ -855,6 +1117,7 @@ function createGifCard(item) {
   favBtn.className = `card-action-btn ${isFav ? 'active-fav' : ''}`;
   favBtn.innerHTML = isFav ? '❤️' : '🤍';
   favBtn.title = isFav ? 'Remove Favorite' : 'Save Favorite';
+  favBtn.setAttribute('aria-label', isFav ? 'Remove Favorite' : 'Save Favorite');
   favBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleFavorite(item.id);
@@ -866,6 +1129,7 @@ function createGifCard(item) {
   copyBtn.className = 'card-action-btn';
   copyBtn.innerHTML = '🔗';
   copyBtn.title = 'Copy Direct URL';
+  copyBtn.setAttribute('aria-label', 'Copy Direct URL');
   copyBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     navigator.clipboard.writeText(item.url);
@@ -882,6 +1146,7 @@ function createGifCard(item) {
 
   const title = document.createElement('div');
   title.className = 'gif-card-title';
+  title.setAttribute('itemprop', 'caption');
   title.textContent = item.title;
 
   const user = document.createElement('div');
@@ -915,15 +1180,21 @@ function renderArticlesGrid() {
   }
 
   ARTICLES_DATA.forEach(art => {
-    const card = document.createElement('div');
+    const card = document.createElement('article');
     card.className = 'story-card';
+    card.setAttribute('itemscope', '');
+    card.setAttribute('itemtype', 'https://schema.org/Article');
 
     const cover = document.createElement('div');
     cover.className = 'story-card-cover';
     
     const img = document.createElement('img');
     img.src = art.coverImage;
-    img.alt = art.title;
+    img.alt = `${art.title} - Visual Culture Essay`;
+    img.width = 600;
+    img.height = 340;
+    img.loading = 'lazy';
+    img.setAttribute('itemprop', 'image');
     cover.appendChild(img);
 
     const badge = document.createElement('span');
@@ -938,10 +1209,12 @@ function renderArticlesGrid() {
 
     const title = document.createElement('h3');
     title.className = 'story-card-title';
+    title.setAttribute('itemprop', 'headline');
     title.textContent = art.title;
 
     const subtitle = document.createElement('p');
     subtitle.className = 'story-card-subtitle';
+    subtitle.setAttribute('itemprop', 'description');
     subtitle.textContent = art.subtitle;
 
     content.appendChild(title);
@@ -952,14 +1225,21 @@ function renderArticlesGrid() {
 
     const authorInfo = document.createElement('div');
     authorInfo.className = 'story-author-info';
+    authorInfo.setAttribute('itemprop', 'author');
+    authorInfo.setAttribute('itemscope', '');
+    authorInfo.setAttribute('itemtype', 'https://schema.org/Person');
 
     const avatar = document.createElement('img');
     avatar.className = 'story-author-avatar';
     avatar.src = art.avatar;
     avatar.alt = art.author;
+    avatar.width = 36;
+    avatar.height = 36;
+    avatar.loading = 'lazy';
 
     const name = document.createElement('span');
     name.className = 'story-author-name';
+    name.setAttribute('itemprop', 'name');
     name.textContent = art.author;
 
     authorInfo.appendChild(avatar);
@@ -1002,6 +1282,14 @@ function renderArticleReader(article) {
   // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
+  // Update SEO for article reader
+  updatePageSEO(
+    `${article.title} | gifzo.lol`,
+    article.subtitle,
+    `https://gifzo.lol/articles/${article.slug}.html`
+  );
+  updateUrlParams();
+
   const container = document.createElement('div');
   container.className = 'article-reader-container';
 
@@ -1010,8 +1298,11 @@ function renderArticleReader(article) {
   backBtn.className = 'btn btn-secondary btn-back-stories';
   backBtn.textContent = '← Back to All Stories';
   backBtn.addEventListener('click', () => {
+    state.activeArticle = null;
     articleReaderView.style.display = 'none';
     storiesGrid.style.display = 'grid';
+    refreshCurrentPageSEO();
+    updateUrlParams();
   });
   container.appendChild(backBtn);
 
@@ -1127,9 +1418,12 @@ function renderArticleReader(article) {
 }
 
 // Open Detail Lightbox Modal
-function openDetailModal(item) {
+function openDetailModal(item, updateUrl = true) {
   state.activeMediaModal = item;
   modalContent.replaceChildren();
+
+  if (updateUrl) updateUrlParams();
+  refreshCurrentPageSEO();
 
   // Media Side
   const mediaSide = document.createElement('div');
@@ -1137,7 +1431,10 @@ function openDetailModal(item) {
 
   const img = document.createElement('img');
   img.src = item.url;
-  img.alt = item.title;
+  img.alt = `${item.title} - ${item.category} Animated GIF Loop`;
+  img.title = item.title;
+  img.width = item.width || 480;
+  img.height = item.height || 360;
   mediaSide.appendChild(img);
 
   // Info Side
@@ -1155,6 +1452,9 @@ function openDetailModal(item) {
   const avatar = document.createElement('img');
   avatar.className = 'modal-user-avatar';
   avatar.src = item.userAvatar || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80';
+  avatar.alt = item.user || 'GifzoArtist';
+  avatar.width = 40;
+  avatar.height = 40;
 
   const userName = document.createElement('span');
   userName.className = 'modal-user-name';
@@ -1181,18 +1481,21 @@ function openDetailModal(item) {
   copyLinkBtn.className = 'btn btn-gradient btn-sm';
   copyLinkBtn.style.flex = '1';
   copyLinkBtn.style.justifyContent = 'center';
-  copyLinkBtn.textContent = '🔗 Copy Direct Link';
+  copyLinkBtn.textContent = '🔗 Copy Share Link';
+  copyLinkBtn.setAttribute('aria-label', 'Copy Shareable Link');
   copyLinkBtn.addEventListener('click', () => {
-    navigator.clipboard.writeText(item.url);
-    showToast('GIF link copied to clipboard!');
+    const shareableUrl = `https://gifzo.lol/?gif=${item.id}`;
+    navigator.clipboard.writeText(shareableUrl);
+    showToast('Direct shareable link copied to clipboard!');
   });
 
-  const embedCode = `<iframe src="${item.url}" width="480" height="360" frameBorder="0" class="gifzo-embed" allowFullScreen></iframe>`;
+  const embedCode = `<iframe src="${item.url}" width="480" height="360" frameBorder="0" class="gifzo-embed" allowFullScreen title="${item.title}"></iframe>`;
   const copyEmbedBtn = document.createElement('button');
   copyEmbedBtn.className = 'btn btn-secondary btn-sm';
   copyEmbedBtn.style.flex = '1';
   copyEmbedBtn.style.justifyContent = 'center';
   copyEmbedBtn.textContent = '💻 Copy Embed Code';
+  copyEmbedBtn.setAttribute('aria-label', 'Copy Embed Code');
   copyEmbedBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(embedCode);
     showToast('Iframe embed code copied!');
@@ -1209,6 +1512,7 @@ function openDetailModal(item) {
   const favBtn = document.createElement('button');
   favBtn.className = `btn ${isFav ? 'btn-gradient' : 'btn-secondary'}`;
   favBtn.textContent = isFav ? '❤️ Remove from Favorites' : '🤍 Add to Favorites';
+  favBtn.setAttribute('aria-label', isFav ? 'Remove from Favorites' : 'Add to Favorites');
   favBtn.addEventListener('click', () => {
     toggleFavorite(item.id);
     const nowFav = state.favorites.includes(item.id);
@@ -1227,6 +1531,9 @@ function openDetailModal(item) {
 
 function closeModal() {
   modalBackdrop.classList.remove('active');
+  state.activeMediaModal = null;
+  updateUrlParams();
+  refreshCurrentPageSEO();
 }
 
 // Upload / Create GIF Modal

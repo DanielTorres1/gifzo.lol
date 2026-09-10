@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gifzo.lol - Be Animated | GIFs, Stickers & Visual Culture Stories</title>
   <meta name="description" content="Search, discover, and share animated GIFs and transparent stickers on gifzo.lol. Explore in-depth stories on internet visual culture, digital semiotics, and loop art.">
+  <meta name="keywords" content="GIFs, animated GIFs, stickers, memes, reaction GIFs, motion culture, loop art, digital animation, transparent stickers, visual semiotics">
+  <meta name="author" content="GIFZO Editorial Board">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#0f0f13">
   <link rel="canonical" href="https://gifzo.lol/">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -12,6 +16,25 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="shortcut icon" href="/favicon.ico">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:site_name" content="gifzo.lol">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="gifzo.lol - Be Animated | GIFs, Stickers & Visual Culture Stories">
+  <meta property="og:description" content="Search, discover, and share animated GIFs and transparent stickers on gifzo.lol. Explore in-depth stories on internet visual culture, digital semiotics, and loop art.">
+  <meta property="og:url" content="https://gifzo.lol/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="GIFZO - Curated Animated GIFs and Visual Culture">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@gifzolol">
+  <meta name="twitter:creator" content="@gifzolol">
+  <meta name="twitter:title" content="gifzo.lol - Be Animated | GIFs, Stickers & Visual Culture Stories">
+  <meta name="twitter:description" content="Search, discover, and share animated GIFs and transparent stickers on gifzo.lol. Explore in-depth stories on internet visual culture, digital semiotics, and loop art.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80">
   
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -21,6 +44,11 @@
     "name": "gifzo.lol",
     "url": "https://gifzo.lol/",
     "description": "The premier independent publication and catalog exploring internet visual culture, looping animations, digital semiotics, and motion design.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "GIFZO",
+      "logo": "https://gifzo.lol/favicon.svg"
+    },
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://gifzo.lol/?q={search_term_string}",
@@ -98,21 +126,27 @@
 
     <!-- Main Content Section -->
     <main>
+      <!-- Editorial Page Heading (SEO & Accessibility) -->
+      <div class="hero-seo-header">
+        <h1 class="hero-seo-title">GIFZO &mdash; Curated Animated GIFs, Stickers & Visual Culture Stories</h1>
+        <p class="hero-seo-desc">Explore trending high-speed loops, transparent stickers, and deep-dive journalism examining digital semiotics and motion design.</p>
+      </div>
+
       <!-- Stories / Articles Section -->
       <section id="stories-view" class="view-section active">
         <!-- Articles Cards Grid (Pre-rendered for search engines & AdSense crawlers) -->
         <div id="stories-grid" class="stories-grid">
-          <article class="story-card">
+          <article class="story-card" itemscope itemtype="https://schema.org/Article">
             <div class="story-card-cover">
-              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80" alt="The Evolution of the GIF">
+              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80" alt="The Evolution of the GIF: From 1987 Graphics to Modern Pop Culture" width="600" height="340" loading="lazy" itemprop="image">
               <span class="story-category-badge">INTERNET HISTORY</span>
             </div>
             <div class="story-card-content">
-              <h3 class="story-card-title">The Evolution of the GIF: From 1987 Graphics to Modern Pop Culture</h3>
-              <p class="story-card-subtitle">How a simple 8-bit image compression format created by CompuServe became the universal language of digital emotion.</p>
+              <h3 class="story-card-title" itemprop="headline">The Evolution of the GIF: From 1987 Graphics to Modern Pop Culture</h3>
+              <p class="story-card-subtitle" itemprop="description">How a simple 8-bit image compression format created by CompuServe became the universal language of digital emotion.</p>
               <div class="story-card-footer">
-                <div class="story-author-info">
-                  <span class="story-author-name">Elena Rostova</span>
+                <div class="story-author-info" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                  <span class="story-author-name" itemprop="name">Elena Rostova</span>
                   <span class="story-date">August 2, 2026</span>
                 </div>
                 <a href="/articles/evolution-of-the-gif.html" class="read-article-link">Read Full Essay →</a>
@@ -120,17 +154,17 @@
             </div>
           </article>
 
-          <article class="story-card">
+          <article class="story-card" itemscope itemtype="https://schema.org/Article">
             <div class="story-card-cover">
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80" alt="How Reaction GIFs Changed Communication">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80" alt="How Reaction GIFs Changed the Way We Communicate Online" width="600" height="340" loading="lazy" itemprop="image">
               <span class="story-category-badge">COMMUNICATION</span>
             </div>
             <div class="story-card-content">
-              <h3 class="story-card-title">How Reaction GIFs Changed the Way We Communicate Online</h3>
-              <p class="story-card-subtitle">Exploring why a three-second looping clip can convey human emotion far more effectively than text ever could.</p>
+              <h3 class="story-card-title" itemprop="headline">How Reaction GIFs Changed the Way We Communicate Online</h3>
+              <p class="story-card-subtitle" itemprop="description">Exploring why a three-second looping clip can convey human emotion far more effectively than text ever could.</p>
               <div class="story-card-footer">
-                <div class="story-author-info">
-                  <span class="story-author-name">Marcus Vance</span>
+                <div class="story-author-info" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                  <span class="story-author-name" itemprop="name">Marcus Vance</span>
                   <span class="story-date">July 28, 2026</span>
                 </div>
                 <a href="/articles/reaction-gifs-communication.html" class="read-article-link">Read Full Essay →</a>
@@ -138,17 +172,17 @@
             </div>
           </article>
 
-          <article class="story-card">
+          <article class="story-card" itemscope itemtype="https://schema.org/Article">
             <div class="story-card-cover">
-              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&fit=crop&q=80" alt="Behind the Frames: Loop Art">
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&fit=crop&q=80" alt="Behind the Frames: How Animators & Pixel Artists Craft Viral Loop Art" width="600" height="340" loading="lazy" itemprop="image">
               <span class="story-category-badge">CREATIVE & DESIGN</span>
             </div>
             <div class="story-card-content">
-              <h3 class="story-card-title">Behind the Frames: How Animators & Pixel Artists Craft Viral Loop Art</h3>
-              <p class="story-card-subtitle">Delving into the meticulous craft of seamless looping, frame rate math, and visual storytelling in micro-animation.</p>
+              <h3 class="story-card-title" itemprop="headline">Behind the Frames: How Animators & Pixel Artists Craft Viral Loop Art</h3>
+              <p class="story-card-subtitle" itemprop="description">Delving into the meticulous craft of seamless looping, frame rate math, and visual storytelling in micro-animation.</p>
               <div class="story-card-footer">
-                <div class="story-author-info">
-                  <span class="story-author-name">Sora Takahashi</span>
+                <div class="story-author-info" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                  <span class="story-author-name" itemprop="name">Sora Takahashi</span>
                   <span class="story-date">July 19, 2026</span>
                 </div>
                 <a href="/articles/behind-the-frames-loop-art.html" class="read-article-link">Read Full Essay →</a>
@@ -169,7 +203,56 @@
             Trending GIFs
           </h2>
         </div>
-        <div id="media-masonry-grid" class="media-masonry-grid"></div>
+        <div id="media-masonry-grid" class="media-masonry-grid">
+          <!-- Pre-rendered for Search Engines & Image Crawlers (SEO) -->
+          <figure class="gif-card" itemscope itemtype="https://schema.org/ImageObject">
+            <img src="https://media.giphy.com/media/fqhKXT4turqxq8NaCs/giphy.gif" alt="Mind Blown Fireworks Brain Explosion - Reactions Animated GIF Loop" title="Mind Blown Fireworks Brain Explosion" width="480" height="360" loading="lazy" itemprop="contentUrl">
+            <meta itemprop="name" content="Mind Blown Fireworks Brain Explosion">
+            <meta itemprop="keywords" content="mindblown, fireworks, boom, wow, reaction">
+            <figcaption class="gif-card-overlay">
+              <div class="gif-card-info">
+                <div class="gif-card-title" itemprop="caption">Mind Blown Fireworks Brain Explosion</div>
+                <div class="gif-card-user">@BrainMelt</div>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="gif-card" itemscope itemtype="https://schema.org/ImageObject">
+            <img src="https://media.giphy.com/media/6u9t67tyN1mV6VMrf7/giphy.gif" alt="Dunk Slam Basketball Fire - Sports Animated GIF Loop" title="Dunk Slam Basketball Fire" width="480" height="360" loading="lazy" itemprop="contentUrl">
+            <meta itemprop="name" content="Dunk Slam Basketball Fire">
+            <meta itemprop="keywords" content="basketball, dunk, sports, fire, hype">
+            <figcaption class="gif-card-overlay">
+              <div class="gif-card-info">
+                <div class="gif-card-title" itemprop="caption">Dunk Slam Basketball Fire</div>
+                <div class="gif-card-user">@HoopDreams</div>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="gif-card" itemscope itemtype="https://schema.org/ImageObject">
+            <img src="https://media.giphy.com/media/gv7OG450o4PeM/giphy.gif" alt="Retro 80s Cyberpunk Highway Drive - Gaming Animated GIF Loop" title="Retro 80s Cyberpunk Highway Drive" width="480" height="360" loading="lazy" itemprop="contentUrl">
+            <meta itemprop="name" content="Retro 80s Cyberpunk Highway Drive">
+            <meta itemprop="keywords" content="cyberpunk, synthwave, 80s, neon, drive">
+            <figcaption class="gif-card-overlay">
+              <div class="gif-card-info">
+                <div class="gif-card-title" itemprop="caption">Retro 80s Cyberpunk Highway Drive</div>
+                <div class="gif-card-user">@SynthwaveMaster</div>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="gif-card" itemscope itemtype="https://schema.org/ImageObject">
+            <img src="https://media.giphy.com/media/kBYniXGn9rSn75AS3l/giphy.gif" alt="Anime Rainy Night Coffee Shop - Anime Animated GIF Loop" title="Anime Rainy Night Coffee Shop" width="480" height="270" loading="lazy" itemprop="contentUrl">
+            <meta itemprop="name" content="Anime Rainy Night Coffee Shop">
+            <meta itemprop="keywords" content="anime, rain, lofi, coffee, chill">
+            <figcaption class="gif-card-overlay">
+              <div class="gif-card-info">
+                <div class="gif-card-title" itemprop="caption">Anime Rainy Night Coffee Shop</div>
+                <div class="gif-card-user">@LoFiVibes</div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
       </section>
     </main>
 
