@@ -1,0 +1,19 @@
+# robots.txt for gifzo.lol
+# Permitting search crawlers and Google AdSense mediapartners
+
+User-agent: *
+Allow: /
+
+# Google AdSense Crawler specific access
+User-agent: Mediapartners-Google
+Allow: /
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://gifzo.lol/sitemap.xml

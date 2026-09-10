@@ -394,7 +394,7 @@ function bindEvents() {
   searchClearBtn?.addEventListener('click', clearSearch);
 
   // Tab Switching
-  navTabs.forEach(tab => {
+  navTabs?.forEach(tab => {
     tab.addEventListener('click', (e) => {
       const targetTab = tab.dataset.tab;
       switchTab(targetTab);
@@ -402,7 +402,7 @@ function bindEvents() {
   });
 
   // Category Pills delegation
-  trendingTagsBar.addEventListener('click', (e) => {
+  trendingTagsBar?.addEventListener('click', (e) => {
     const pill = e.target.closest('.tag-pill');
     if (pill) {
       document.querySelectorAll('.tag-pill').forEach(p => p.classList.remove('active'));
@@ -413,7 +413,7 @@ function bindEvents() {
   });
 
   // Logo Navigation (Home)
-  document.getElementById('logo-home-link').addEventListener('click', (e) => {
+  document.getElementById('logo-home-link')?.addEventListener('click', (e) => {
     e.preventDefault();
     state.searchQuery = '';
     state.activeCategory = 'All';
@@ -428,14 +428,49 @@ function bindEvents() {
   document.getElementById('close-upload-modal')?.addEventListener('click', closeUploadModal);
 
   // Close Detail Modal
-  document.getElementById('close-detail-modal').addEventListener('click', closeModal);
-  modalBackdrop.addEventListener('click', (e) => {
+  document.getElementById('close-detail-modal')?.addEventListener('click', closeModal);
+  modalBackdrop?.addEventListener('click', (e) => {
     if (e.target === modalBackdrop) closeModal();
   });
 
-  uploadModalBackdrop.addEventListener('click', (e) => {
+  uploadModalBackdrop?.addEventListener('click', (e) => {
     if (e.target === uploadModalBackdrop) closeUploadModal();
   });
+
+  // Upload Form Listener (guarded)
+  const uploadForm = document.getElementById('upload-form');
+  if (uploadForm) {
+    uploadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = document.getElementById('upload-title')?.value.trim();
+      const url = document.getElementById('upload-url')?.value.trim();
+      const category = document.getElementById('upload-category')?.value || 'Reactions';
+      const tags = document.getElementById('upload-tags')?.value.split(',').map(t => t.trim()) || [];
+
+      if (!title || !url) return;
+
+      const newGif = {
+        id: `custom_${Date.now()}`,
+        type: 'gifs',
+        title,
+        category,
+        user: 'MyUploadedGifs',
+        userAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80',
+        url,
+        width: 480,
+        height: 360,
+        tags
+      };
+
+      state.uploadedItems.unshift(newGif);
+      localStorage.setItem('gifzo_uploaded', JSON.stringify(state.uploadedItems));
+
+      closeUploadModal();
+      uploadForm.reset();
+      showToast('🎉 Custom GIF successfully uploaded and published!');
+      switchTab('gifs');
+    });
+  }
 }
 
 // Render Trending Category Pills
@@ -998,43 +1033,12 @@ function closeModal() {
 
 // Upload / Create GIF Modal
 function openUploadModal() {
-  uploadModalBackdrop.classList.add('active');
+  uploadModalBackdrop?.classList.add('active');
 }
 
 function closeUploadModal() {
-  uploadModalBackdrop.classList.remove('active');
+  uploadModalBackdrop?.classList.remove('active');
 }
-
-document.getElementById('upload-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const title = document.getElementById('upload-title').value.trim();
-  const url = document.getElementById('upload-url').value.trim();
-  const category = document.getElementById('upload-category').value;
-  const tags = document.getElementById('upload-tags').value.split(',').map(t => t.trim());
-
-  if (!title || !url) return;
-
-  const newGif = {
-    id: `custom_${Date.now()}`,
-    type: 'gifs',
-    title,
-    category,
-    user: 'MyUploadedGifs',
-    userAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80',
-    url,
-    width: 480,
-    height: 360,
-    tags
-  };
-
-  state.uploadedItems.unshift(newGif);
-  localStorage.setItem('gifzo_uploaded', JSON.stringify(state.uploadedItems));
-
-  closeUploadModal();
-  document.getElementById('upload-form').reset();
-  showToast('🎉 Custom GIF successfully uploaded and published!');
-  switchTab('gifs');
-});
 
 // Favorites Manager
 function toggleFavorite(id) {

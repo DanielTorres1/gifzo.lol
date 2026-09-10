@@ -4,9 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gifzo.lol - Be Animated | GIFs, Stickers & Visual Culture Stories</title>
-  <meta name="description" content="Search, discover, and share animated GIFs and transparent stickers on gifzo.lol. Explore in-depth stories on internet visual culture.">
+  <meta name="description" content="Search, discover, and share animated GIFs and transparent stickers on gifzo.lol. Explore in-depth stories on internet visual culture, digital semiotics, and loop art.">
+  <link rel="canonical" href="https://gifzo.lol/">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='30' fill='%2300ff99'/><text x='50%' y='68%' font-size='60' font-weight='900' text-anchor='middle' fill='%23121212'>G</text></svg>">
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "gifzo.lol",
+    "url": "https://gifzo.lol/",
+    "description": "The premier independent publication and catalog exploring internet visual culture, looping animations, digital semiotics, and motion design.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://gifzo.lol/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -18,7 +35,7 @@
     <!-- Header & Navigation -->
     <header class="header">
       <div class="nav-top">
-        <a href="#" id="logo-home-link" class="logo-container">
+        <a href="/" id="logo-home-link" class="logo-container">
           <div class="logo-badge" title="gifzo.lol - Be Animated">
             <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -41,6 +58,23 @@
           </div>
           <span class="logo-text">GIFZO<span class="logo-accent">.LOL</span></span>
         </a>
+
+        <div class="header-actions">
+          <a href="/about.html" class="header-link">About</a>
+          <a href="/contact.html" class="header-link">Contact</a>
+        </div>
+      </div>
+
+      <!-- Search Bar Area -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <input type="text" id="search-input" class="search-input" placeholder="Search all GIFs, Stickers, and Culture Stories..." autocomplete="off">
+          <button id="search-clear-btn" class="search-clear-btn" title="Clear">✕</button>
+          <button id="search-btn" class="search-btn" title="Search">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          </button>
+        </div>
+        <div id="search-suggestions" class="search-suggestions"></div>
       </div>
 
       <!-- Trending Category Pills Bar -->
@@ -51,7 +85,7 @@
     <nav class="nav-tabs">
       <div class="tabs-group">
         <button class="tab-btn active" data-tab="stories">
-          Stories <span class="tab-badge">8 Articles</span>
+          Stories <span class="tab-badge">21 Articles</span>
         </button>
         <button class="tab-btn" data-tab="gifs">GIFs</button>
         <button class="tab-btn" data-tab="stickers">Stickers</button>
@@ -62,8 +96,62 @@
     <main>
       <!-- Stories / Articles Section -->
       <section id="stories-view" class="view-section active">
-        <!-- Articles Cards Grid -->
-        <div id="stories-grid" class="stories-grid"></div>
+        <!-- Articles Cards Grid (Pre-rendered for search engines & AdSense crawlers) -->
+        <div id="stories-grid" class="stories-grid">
+          <article class="story-card">
+            <div class="story-card-cover">
+              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80" alt="The Evolution of the GIF">
+              <span class="story-category-badge">INTERNET HISTORY</span>
+            </div>
+            <div class="story-card-content">
+              <h3 class="story-card-title">The Evolution of the GIF: From 1987 Graphics to Modern Pop Culture</h3>
+              <p class="story-card-subtitle">How a simple 8-bit image compression format created by CompuServe became the universal language of digital emotion.</p>
+              <div class="story-card-footer">
+                <div class="story-author-info">
+                  <span class="story-author-name">Elena Rostova</span>
+                  <span class="story-date">August 2, 2026</span>
+                </div>
+                <a href="/articles/evolution-of-the-gif.html" class="read-article-link">Read Full Essay →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <div class="story-card-cover">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80" alt="How Reaction GIFs Changed Communication">
+              <span class="story-category-badge">COMMUNICATION</span>
+            </div>
+            <div class="story-card-content">
+              <h3 class="story-card-title">How Reaction GIFs Changed the Way We Communicate Online</h3>
+              <p class="story-card-subtitle">Exploring why a three-second looping clip can convey human emotion far more effectively than text ever could.</p>
+              <div class="story-card-footer">
+                <div class="story-author-info">
+                  <span class="story-author-name">Marcus Vance</span>
+                  <span class="story-date">July 28, 2026</span>
+                </div>
+                <a href="/articles/reaction-gifs-communication.html" class="read-article-link">Read Full Essay →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <div class="story-card-cover">
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1200&auto=format&fit=crop&q=80" alt="Behind the Frames: Loop Art">
+              <span class="story-category-badge">CREATIVE & DESIGN</span>
+            </div>
+            <div class="story-card-content">
+              <h3 class="story-card-title">Behind the Frames: How Animators & Pixel Artists Craft Viral Loop Art</h3>
+              <p class="story-card-subtitle">Delving into the meticulous craft of seamless looping, frame rate math, and visual storytelling in micro-animation.</p>
+              <div class="story-card-footer">
+                <div class="story-author-info">
+                  <span class="story-author-name">Sora Takahashi</span>
+                  <span class="story-date">July 19, 2026</span>
+                </div>
+                <a href="/articles/behind-the-frames-loop-art.html" class="read-article-link">Read Full Essay →</a>
+              </div>
+            </div>
+          </article>
+        </div>
 
         <!-- Single Article Reader View -->
         <div id="article-reader-view" class="article-reader-view" style="display: none;"></div>
@@ -80,6 +168,58 @@
         <div id="media-masonry-grid" class="media-masonry-grid"></div>
       </section>
     </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-col brand-col">
+          <div class="footer-brand">
+            <span class="logo-text">GIFZO<span class="logo-accent">.LOL</span></span>
+          </div>
+          <p class="footer-tagline">
+            The premier independent publication and catalog exploring internet visual culture, looping animations, digital semiotics, and motion design.
+          </p>
+          <div class="footer-badges">
+            <span class="badge-pill">Original Journalism</span>
+            <span class="badge-pill">Curated Loops</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Editorial & Culture</h4>
+          <ul class="footer-links">
+            <li><a href="/about.html">About GIFZO</a></li>
+            <li><a href="/articles/evolution-of-the-gif.html">History of the GIF</a></li>
+            <li><a href="/articles/reaction-gifs-communication.html">Reaction Semiotics</a></li>
+            <li><a href="/articles/behind-the-frames-loop-art.html">Loop Artistry</a></li>
+            <li><a href="/articles/soundless-cinema-gif-storytelling.html">Soundless Cinema</a></li>
+            <li><a href="/articles/the-ultimate-guide-to-animated-stickers.html">Sticker Design Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="/dmca.html">DMCA & Copyright Policy</a></li>
+            <li><a href="/contact.html">Contact & Editorial Desk</a></li>
+            <li><a href="/sitemap.xml">XML Sitemap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Publisher Disclosure</h4>
+          <p class="footer-disclaimer">
+            gifzo.lol adheres to strict digital copyright, Fair Use (17 U.S. Code § 107), and Google AdSense publisher policies. Media previews are indexed for cultural criticism, commentary, and educational analysis.
+          </p>
+          <p class="footer-contact-note">
+            Editorial inquiries: <a href="mailto:contact@gifzo.lol">contact@gifzo.lol</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 gifzo.lol • All Rights Reserved. Be Animated.</p>
+        <p>Independent Visual Culture & Loop Journalism.</p>
+      </div>
+    </footer>
 
   </div>
 
