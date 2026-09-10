@@ -357,11 +357,19 @@ body {
   transition: all var(--transition-fast);
 }
 
-.tag-pill:hover, .tag-pill.active {
+.tag-pill:hover {
   background: var(--bg-hover);
   color: #fff;
   border-color: var(--neon-purple);
   box-shadow: 0 0 10px rgba(153, 51, 255, 0.3);
+}
+
+.tag-pill.active {
+  background: var(--gradient-btn);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 2px 14px rgba(255, 51, 102, 0.45);
+  font-weight: 700;
 }
 
 /* Navigation Tabs */
@@ -878,16 +886,6 @@ body {
   flex-wrap: wrap;
 }
 
-.article-word-count-badge {
-  margin-left: auto;
-  background: rgba(0, 255, 153, 0.15);
-  color: var(--neon-cyan);
-  border: 1px solid var(--neon-cyan);
-  padding: 4px 12px;
-  border-radius: var(--radius-pill);
-  font-size: 0.85rem;
-  font-weight: 700;
-}
 
 /* Detail Lightbox Modal */
 .modal-backdrop {

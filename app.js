@@ -345,6 +345,138 @@ const INITIAL_CATALOG = [
     width: 480,
     height: 270,
     tags: ["clip", "anime", "energy", "power", "saiyan"]
+  },
+  {
+    id: "g15",
+    type: "gifs",
+    title: "Think Smart Big Brain Guy Meme",
+    category: "Reactions",
+    user: "BrainVibes",
+    userAvatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/d3mlE7uhX8KFgEmY/giphy.gif",
+    width: 480,
+    height: 270,
+    tags: ["think", "smart", "brain", "meme", "reaction"]
+  },
+  {
+    id: "g16",
+    type: "gifs",
+    title: "Excited Popcorn Movie Night",
+    category: "Entertainment",
+    user: "PopcornCinema",
+    userAvatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif",
+    width: 480,
+    height: 270,
+    tags: ["popcorn", "movie", "entertainment", "fun", "excited"]
+  },
+  {
+    id: "g17",
+    type: "gifs",
+    title: "Golden Trophy Applause Celebration",
+    category: "Entertainment",
+    user: "ShowtimeAwards",
+    userAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
+    width: 480,
+    height: 360,
+    tags: ["awards", "celebration", "entertainment", "applause", "cheering"]
+  },
+  {
+    id: "g18",
+    type: "gifs",
+    title: "Pro Skater 360 Kickflip Grind",
+    category: "Sports",
+    user: "SkateCulture",
+    userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/l41lOEL19G045hLfa/giphy.gif",
+    width: 480,
+    height: 270,
+    tags: ["skate", "kickflip", "sports", "action", "grind"]
+  },
+  {
+    id: "g19",
+    type: "gifs",
+    title: "Monster Alley-Oop Slam Dunk",
+    category: "Sports",
+    user: "HoopsMaster",
+    userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/3o7TKTDnUxE0g2fSE8/giphy.gif",
+    width: 480,
+    height: 270,
+    tags: ["basketball", "dunk", "sports", "slam", "athletic"]
+  },
+  {
+    id: "g20",
+    type: "gifs",
+    title: "Kinetic Liquid Chrome 3D Sphere",
+    category: "Artists",
+    user: "LiquidForm",
+    userAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif",
+    width: 480,
+    height: 360,
+    tags: ["chrome", "liquid", "art", "3d", "render"]
+  },
+  {
+    id: "g21",
+    type: "gifs",
+    title: "Retro 16-Bit Pixel Arcade Battle",
+    category: "Gaming",
+    user: "PixelKnight",
+    userAvatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/3ohzdIuqJoo8QdKlnW/giphy.gif",
+    width: 480,
+    height: 270,
+    tags: ["pixel", "arcade", "gaming", "retro", "16bit"]
+  },
+  {
+    id: "g22",
+    type: "gifs",
+    title: "Cyberpunk Pixel Metropolis Downpour",
+    category: "Gaming",
+    user: "NeoTokyoArt",
+    userAvatar: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
+    width: 480,
+    height: 270,
+    tags: ["cyberpunk", "gaming", "city", "pixelart", "rain"]
+  },
+  {
+    id: "g23",
+    type: "gifs",
+    title: "Lo-Fi Anime Sunset Skyline Breeze",
+    category: "Anime",
+    user: "TokyoLoFi",
+    userAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif",
+    width: 480,
+    height: 270,
+    tags: ["anime", "lofi", "sunset", "aesthetic", "peaceful"]
+  },
+  {
+    id: "g24",
+    type: "gifs",
+    title: "Dramatic Chipmunk Zoom Meme",
+    category: "Memes",
+    user: "ViralVault",
+    userAvatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/Nm8ZPAGOwZUQM/giphy.gif",
+    width: 480,
+    height: 360,
+    tags: ["chipmunk", "dramatic", "meme", "classic", "funny"]
+  },
+  {
+    id: "g25",
+    type: "gifs",
+    title: "Never Gonna Give You Up Dance Loop",
+    category: "Memes",
+    user: "RickVault",
+    userAvatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/Ju7l5y9osyymQ/giphy.gif",
+    width: 480,
+    height: 360,
+    tags: ["rickroll", "meme", "dance", "classic", "music"]
   }
 ];
 
@@ -404,12 +536,34 @@ function bindEvents() {
   // Category Pills delegation
   trendingTagsBar?.addEventListener('click', (e) => {
     const pill = e.target.closest('.tag-pill');
-    if (pill) {
-      document.querySelectorAll('.tag-pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      state.activeCategory = pill.dataset.category;
+    if (!pill) return;
+
+    const cat = pill.dataset.category;
+    state.activeCategory = cat;
+
+    // Update active visual state across all trending pills
+    document.querySelectorAll('.tag-pill').forEach(p => {
+      p.classList.toggle('active', p.dataset.category === cat);
+    });
+
+    if (cat === 'Stickers') {
+      switchTab('stickers');
+    } else if (cat === 'All') {
       renderActiveView();
+    } else {
+      // Media categories: Reactions, Entertainment, Sports, Artists, Gaming, Anime, Memes
+      if (state.activeTab !== 'gifs') {
+        switchTab('gifs');
+      } else {
+        renderActiveView();
+      }
     }
+
+    // Smoothly bring the active content section into clear view
+    const targetSection = state.activeTab === 'stories' 
+      ? document.getElementById('stories-view') 
+      : document.getElementById('media-view');
+    targetSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   // Logo Navigation (Home)
@@ -473,6 +627,20 @@ function bindEvents() {
   }
 }
 
+// Synchronize Trending Pills with Current State
+function syncTrendingPills() {
+  document.querySelectorAll('.tag-pill').forEach(pill => {
+    const cat = pill.dataset.category;
+    if (state.activeTab === 'stickers') {
+      pill.classList.toggle('active', cat === 'Stickers');
+    } else if (state.activeTab === 'stories') {
+      pill.classList.toggle('active', cat === (state.activeCategory || 'All'));
+    } else {
+      pill.classList.toggle('active', cat === state.activeCategory);
+    }
+  });
+}
+
 // Render Trending Category Pills
 function renderTrendingTags() {
   const categories = ["All", "Reactions", "Entertainment", "Sports", "Stickers", "Artists", "Gaming", "Anime", "Memes"];
@@ -490,6 +658,8 @@ function renderTrendingTags() {
     pill.textContent = cat;
     trendingTagsBar.appendChild(pill);
   });
+
+  syncTrendingPills();
 }
 
 // Switch Active View Tab
@@ -510,6 +680,7 @@ function switchTab(tabName) {
     document.getElementById('media-view').classList.add('active');
   }
 
+  syncTrendingPills();
   renderActiveView();
 }
 
@@ -593,8 +764,8 @@ function renderMediaGrid() {
   }
 
   // Filter by Category
-  if (state.activeCategory !== 'All') {
-    items = items.filter(item => item.category === state.activeCategory);
+  if (state.activeCategory !== 'All' && state.activeTab !== 'stickers') {
+    items = items.filter(item => (item.category || '').toLowerCase() === state.activeCategory.toLowerCase());
   }
 
   // Filter by Search Query
@@ -608,16 +779,26 @@ function renderMediaGrid() {
 
   // Section Header Update
   const titleElem = document.getElementById('view-section-title');
-  if (state.activeTab === 'favorites') {
-    titleElem.textContent = `❤️ FAVORITE LOOPS (${items.length})`;
-  } else if (state.searchQuery) {
-    titleElem.textContent = `🔍 SEARCH RESULTS FOR "${state.searchQuery.toUpperCase()}" (${items.length})`;
-  } else {
-    titleElem.textContent = `🔥 ${state.activeTab.toUpperCase()} - ${state.activeCategory.toUpperCase()}`;
+  if (titleElem) {
+    if (state.activeTab === 'favorites') {
+      titleElem.textContent = `❤️ FAVORITE LOOPS (${items.length})`;
+    } else if (state.searchQuery) {
+      titleElem.textContent = `🔍 SEARCH RESULTS FOR "${state.searchQuery.toUpperCase()}" (${items.length})`;
+    } else if (state.activeTab === 'stickers') {
+      titleElem.textContent = `✨ TRENDING STICKERS (${items.length} STICKERS)`;
+    } else if (state.activeTab === 'clips') {
+      titleElem.textContent = `🎬 VIDEO CLIPS (${items.length} CLIPS)`;
+    } else {
+      if (state.activeCategory === 'All') {
+        titleElem.textContent = `🔥 TRENDING GIFS (${items.length} LOOPS)`;
+      } else {
+        titleElem.textContent = `🔥 ${state.activeCategory.toUpperCase()} GIFS (${items.length} LOOPS)`;
+      }
+    }
   }
 
   if (items.length === 0) {
-    renderEmptyState(mediaMasonryGrid, "No GIF loops found matching your criteria.");
+    renderEmptyState(mediaMasonryGrid, `No GIF loops found in ${state.activeCategory}. Try selecting 'All' or another category.`);
     return;
   }
 
@@ -897,18 +1078,16 @@ function renderArticleReader(article) {
   body.className = 'article-body';
 
   const paragraphs = article.content.split('\n\n');
-  let totalWordCount = 0;
 
   paragraphs.forEach(pText => {
     const p = document.createElement('p');
     p.textContent = pText;
     body.appendChild(p);
-    totalWordCount += pText.trim().split(/\s+/).length;
   });
 
   container.appendChild(body);
 
-  // Tags & Word Count Footer
+  // Article Tags Footer
   const tagsFooter = document.createElement('div');
   tagsFooter.className = 'article-tags-footer';
 
@@ -918,11 +1097,6 @@ function renderArticleReader(article) {
     tagBtn.textContent = `#${t}`;
     tagsFooter.appendChild(tagBtn);
   });
-
-  const wordBadge = document.createElement('span');
-  wordBadge.className = 'article-word-count-badge';
-  wordBadge.textContent = `📊 Word Count: ${totalWordCount} words`;
-  tagsFooter.appendChild(wordBadge);
 
   container.appendChild(tagsFooter);
   articleReaderView.appendChild(container);
