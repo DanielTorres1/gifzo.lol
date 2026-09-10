@@ -385,26 +385,50 @@ const INITIAL_CATALOG = [
   {
     id: "g18",
     type: "gifs",
-    title: "Pro Skater 360 Kickflip Grind",
+    title: "Endzone Touchdown Victory Dance",
     category: "Sports",
-    user: "SkateCulture",
+    user: "TouchdownClub",
     userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/l41lOEL19G045hLfa/giphy.gif",
+    url: "https://media.giphy.com/media/26u4cqiYI30juCOGY/giphy.gif",
     width: 480,
     height: 270,
-    tags: ["skate", "kickflip", "sports", "action", "grind"]
+    tags: ["football", "touchdown", "sports", "celebration", "dance"]
   },
   {
     id: "g19",
     type: "gifs",
-    title: "Monster Alley-Oop Slam Dunk",
+    title: "Steph Curry 3-Point Celebration",
     category: "Sports",
     user: "HoopsMaster",
     userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&auto=format&fit=crop&q=80",
-    url: "https://media.giphy.com/media/3o7TKTDnUxE0g2fSE8/giphy.gif",
+    url: "https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif",
     width: 480,
     height: 270,
-    tags: ["basketball", "dunk", "sports", "slam", "athletic"]
+    tags: ["basketball", "curry", "sports", "celebration", "hype"]
+  },
+  {
+    id: "g26",
+    type: "gifs",
+    title: "Lightning Fast Basketball Crossover",
+    category: "Sports",
+    user: "AnkleBreaker",
+    userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/l46CqLVMWzaJUFPLW/giphy.gif",
+    width: 480,
+    height: 268,
+    tags: ["basketball", "crossover", "sports", "skills", "dribble"]
+  },
+  {
+    id: "g27",
+    type: "gifs",
+    title: "World Cup Soccer Goal Slide",
+    category: "Sports",
+    user: "GoalZone",
+    userAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&auto=format&fit=crop&q=80",
+    url: "https://media.giphy.com/media/d2Z4NRCUxsxZBvag/giphy.gif",
+    width: 480,
+    height: 360,
+    tags: ["soccer", "goal", "sports", "slide", "worldcup"]
   },
   {
     id: "g20",
