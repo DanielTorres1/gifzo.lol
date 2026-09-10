@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="gifzoLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff99" />
+      <stop offset="33%" stop-color="#00ccff" />
+      <stop offset="66%" stop-color="#9933ff" />
+      <stop offset="100%" stop-color="#ff6699" />
+    </linearGradient>
+    <linearGradient id="gifzoInnerGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff35c" />
+      <stop offset="100%" stop-color="#ff6699" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="92" height="92" rx="24" fill="url(#gifzoLogoGrad)" />
+  <rect x="12" y="12" width="76" height="76" rx="18" fill="#121212" />
+  <path d="M 64 30 C 56 22 42 22 32 30 C 20 40 20 60 32 70 C 42 78 58 78 66 70 C 72 64 74 55 74 48 H 50 V 38 H 84 C 85 43 85 50 84 56 C 81 70 71 82 54 86 C 35 90 18 80 12 63 C 6 44 16 24 34 16 C 48 10 66 13 77 22 L 64 30 Z" fill="url(#gifzoInnerGrad)" />
+  <path d="M42 38 L62 50 L42 62 Z" fill="#00ff99" />
+</svg>
