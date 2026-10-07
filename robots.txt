@@ -2,18 +2,34 @@
 # Permitting search crawlers and Google AdSense mediapartners
 
 User-agent: *
+Disallow: /go/
+Disallow: /funny-greetings-card.html
+Disallow: /hogg-dumpster-fire-mug.html
+Disallow: /inflatable-chicken.html
+Disallow: /masters-of-the-universe-2026.html
+Disallow: /what-do-you-meme-core.html
+Disallow: /boxing-pillows.html
 Allow: /
 
 # Google AdSense Crawler specific access
 User-agent: Mediapartners-Google
+Disallow: /go/
+Disallow: /funny-greetings-card.html
+Disallow: /hogg-dumpster-fire-mug.html
+Disallow: /inflatable-chicken.html
+Disallow: /masters-of-the-universe-2026.html
+Disallow: /what-do-you-meme-core.html
+Disallow: /boxing-pillows.html
 Allow: /
 
 # Googlebot
 User-agent: Googlebot
+Disallow: /go/
 Allow: /
 
 # Bingbot
 User-agent: Bingbot
+Disallow: /go/
 Allow: /
 
 Sitemap: https://gifzo.lol/sitemap.xml

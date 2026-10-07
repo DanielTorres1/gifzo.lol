@@ -30,6 +30,36 @@
       "handle": "filesystem"
     },
     {
+      "src": "^/funny-greetings-card(\\.html)?$",
+      "status": 301,
+      "headers": { "Location": "/go/funny-greetings-card.html" }
+    },
+    {
+      "src": "^/hogg-dumpster-fire-mug(\\.html)?$",
+      "status": 301,
+      "headers": { "Location": "/go/hogg-dumpster-fire-mug.html" }
+    },
+    {
+      "src": "^/inflatable-chicken(\\.html)?$",
+      "status": 301,
+      "headers": { "Location": "/go/inflatable-chicken.html" }
+    },
+    {
+      "src": "^/masters-of-the-universe-2026(\\.html)?$",
+      "status": 301,
+      "headers": { "Location": "/go/masters-of-the-universe-2026.html" }
+    },
+    {
+      "src": "^/what-do-you-meme-core(\\.html)?$",
+      "status": 301,
+      "headers": { "Location": "/go/what-do-you-meme-core.html" }
+    },
+    {
+      "src": "^/boxing-pillows(\\.html)?$",
+      "status": 301,
+      "headers": { "Location": "/go/boxing-pillows.html" }
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
