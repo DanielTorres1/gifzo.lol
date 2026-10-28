@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Meme Caption Generator - GIFZO.lol Tools</title>
+  <meta name="description" content="Add top and bottom impact text or modern subtitles to any GIF or image instantly in your browser. 100% private, client-side, and free without watermarks.">
+  <meta name="keywords" content="meme generator, add caption to gif, gif meme maker, impact font meme, animated gif editor, gifzo tools">
+  <link rel="canonical" href="https://gifzo.lol/tools/meme-generator.html">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- Schema.org WebApplication Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "GIFZO Meme & GIF Caption Studio",
+    "url": "https://gifzo.lol/tools/meme-generator.html",
+    "description": "High-performance client-side browser utility to compose captions, headers, and viral text overlays on animated GIFs and images.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7555249067043659" crossorigin="anonymous"></script>
+
+  <style>
+    .tool-workspace {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 32px;
+      margin-top: 24px;
+    }
+    @media (max-width: 900px) {
+      .tool-workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+    .preview-canvas-card {
+      background: #09090c;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 440px;
+      position: relative;
+    }
+    .canvas-wrapper {
+      position: relative;
+      max-width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+      background: #121217;
+    }
+    #memeCanvas {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .controls-panel {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .tool-form-group {
+      margin-bottom: 20px;
+    }
+    .tool-form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .tool-input {
+      width: 100%;
+      padding: 12px 14px;
+      background: #09090d;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      color: #fff;
+      font-size: 0.95rem;
+      transition: border-color var(--transition-fast);
+      box-sizing: border-box;
+    }
+    .tool-input:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+    }
+    .tool-row-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .preset-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .preset-chip {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      color: #ddd;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .preset-chip:hover {
+      background: var(--accent-cyan);
+      color: #000;
+      font-weight: 700;
+    }
+    .btn-action-lg {
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+      color: #050508;
+      font-weight: 800;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 255, 153, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-action-lg:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 255, 153, 0.45);
+    }
+    .btn-outline-upload {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: var(--radius-md);
+      color: var(--accent-cyan);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .btn-outline-upload:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(0, 204, 255, 0.05);
+    }
+    .info-callout {
+      background: rgba(0, 255, 153, 0.05);
+      border-left: 3px solid var(--accent-green);
+      padding: 16px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 0.88rem;
+      color: #ccc;
+      line-height: 1.6;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Signature Rainbow Bar -->
+  <div class="top-rainbow-bar"></div>
+
+  <div class="app-container">
+
+    <!-- Header & Navigation -->
+    <header class="header">
+      <div class="nav-top">
+        <a href="/" id="logo-home-link" class="logo-container">
+          <div class="logo-badge" title="gifzo.lol - Be Animated">
+            <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="gifzoLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00ff99" />
+                  <stop offset="33%" stop-color="#00ccff" />
+                  <stop offset="66%" stop-color="#9933ff" />
+                  <stop offset="100%" stop-color="#ff6699" />
+                </linearGradient>
+                <linearGradient id="gifzoInnerGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#fff35c" />
+                  <stop offset="100%" stop-color="#ff6699" />
+                </linearGradient>
+              </defs>
+              <rect x="5" y="5" width="90" height="90" rx="22" fill="url(#gifzoLogoGrad)" />
+              <rect x="13" y="13" width="74" height="74" rx="16" fill="#121212" />
+              <path d="M 64 30 C 56 22 42 22 32 30 C 20 40 20 60 32 70 C 42 78 58 78 66 70 C 72 64 74 55 74 48 H 50 V 38 H 84 C 85 43 85 50 84 56 C 81 70 71 82 54 86 C 35 90 18 80 12 63 C 6 44 16 24 34 16 C 48 10 66 13 77 22 L 64 30 Z" fill="url(#gifzoInnerGrad)" />
+              <path d="M42 38 L62 50 L42 62 Z" fill="#00ff99" />
+            </svg>
+          </div>
+          <span class="logo-text">GIFZO<span class="logo-accent">.LOL</span></span>
+        </a>
+
+        <div class="header-actions">
+          <a href="/" class="header-link">Home</a>
+          <a href="/tools/meme-generator.html" class="header-link" style="color: #fff; border-color: rgba(255,255,255,0.2);">Generator Tool</a>
+          <a href="/about.html" class="header-link">About</a>
+          <a href="/contact.html" class="header-link">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Tool Container -->
+    <main class="standalone-page-container">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/#stories">Tools</a>
+        <span>/</span>
+        <span aria-current="page">Free Meme & Caption Generator</span>
+      </nav>
+
+      <div class="legal-card" style="padding: 36px 40px;">
+        <header class="article-header" style="margin-bottom: 20px;">
+          <span class="article-cat-tag">BROWSER UTILITY</span>
+          <h1 class="article-main-title" style="font-size: 2.3rem; margin: 12px 0 8px 0;">Instant Meme & GIF Caption Studio</h1>
+          <p class="article-main-subtitle" style="font-size: 1.08rem; color: var(--text-muted); margin-bottom: 16px;">
+            Create high-contrast viral captions, classic Impact memes, or top-bar Twitter/X-style headlines on any image or visual frame. Fast, watermark-free, and processed 100% locally on your computer.
+          </p>
+        </header>
+
+        <div class="tool-workspace">
+          <!-- Canvas Live Preview -->
+          <div class="preview-canvas-card">
+            <div class="canvas-wrapper">
+              <canvas id="memeCanvas" width="600" height="420"></canvas>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-dim); margin-top: 14px;">
+              ⚡ Real-time client-side rendering &bull; High-res PNG export
+            </p>
+          </div>
+
+          <!-- Controls & Inputs -->
+          <div class="controls-panel">
+            <div class="tool-form-group">
+              <label>1. Select Base Template</label>
+              <label class="btn-outline-upload">
+                📁 Upload Custom Image / Frame
+                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+              </label>
+              <div class="preset-chips">
+                <span class="preset-chip" data-img="puppy">🐶 Cute Puppy</span>
+                <span class="preset-chip" data-img="synth">🌌 Cyberpunk</span>
+                <span class="preset-chip" data-img="cat">🐱 Coding Cat</span>
+                <span class="preset-chip" data-img="coffee">☕ Lo-Fi Vibe</span>
+              </div>
+            </div>
+
+            <div class="tool-form-group">
+              <label for="topText">2. Top Caption Text</label>
+              <input type="text" id="topText" class="tool-input" placeholder="WHEN THE CODE FINALLY COMPILES" value="WHEN THE CODE FINALLY COMPILES">
+            </div>
+
+            <div class="tool-form-group">
+              <label for="bottomText">3. Bottom Caption Text</label>
+              <input type="text" id="bottomText" class="tool-input" placeholder="BUT YOU HAVE NO IDEA WHY" value="BUT YOU HAVE NO IDEA WHY">
+            </div>
+
+            <div class="tool-row-inputs tool-form-group">
+              <div>
+                <label for="fontSize">Font Size (<span id="fontSizeDisplay">38</span>px)</label>
+                <input type="range" id="fontSize" min="20" max="64" value="38" style="width: 100%; accent-color: var(--accent-cyan);">
+              </div>
+              <div>
+                <label for="textColor">Text Color</label>
+                <input type="color" id="textColor" value="#ffffff" class="tool-input" style="height: 40px; padding: 2px 4px; cursor: pointer;">
+              </div>
+            </div>
+
+            <div class="tool-form-group">
+              <label for="captionStyle">Caption Layout Style</label>
+              <select id="captionStyle" class="tool-input" style="cursor: pointer;">
+                <option value="classic">Classic Meme (Impact Outline Overlay)</option>
+                <option value="headerBar">Social Header (Dark Top Banner)</option>
+                <option value="subtitles">Modern Subtitle (Lower Thirds)</option>
+              </select>
+            </div>
+
+            <button id="downloadBtn" class="btn-action-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
+              </svg>
+              Export Meme Image
+            </button>
+
+            <div class="info-callout">
+              <strong>🔒 Zero Server Tracking:</strong> Unlike cloud meme generators that upload your images to third-party databases, GIFZO Studio compiles all graphics entirely via browser Canvas API. Your pictures never leave your device.
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Guide on Visual Semiotics -->
+        <article style="margin-top: 48px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 36px;">
+          <h3 style="color: #fff; font-size: 1.4rem; margin-bottom: 14px;">How Captions and Loop Semiotics Transform Reaction Culture</h3>
+          <p style="color: var(--text-muted); line-height: 1.8; font-size: 1rem;">
+            Internet memes are more than quick laughs; they are structural units of digital folklore that synthesize shared social experiences. When juxtaposed with visual frames, contrasting typography shifts the emotional reading of an image from literal observation to ironic commentary. By giving creators immediate, client-side tools to manipulate text placement, stroke contrast, and visual rhythm, GIFZO supports original artistic expression across the global web.
+          </p>
+        </article>
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-col brand-col">
+          <div class="footer-brand">
+            <span class="logo-text">GIFZO<span class="logo-accent">.LOL</span></span>
+          </div>
+          <p class="footer-tagline">
+            The premier independent publication and catalog exploring internet visual culture, looping animations, digital semiotics, and motion design.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Tools & Journalism</h4>
+          <ul class="footer-links">
+            <li><a href="/tools/meme-generator.html">Meme & Caption Studio</a></li>
+            <li><a href="/articles/evolution-of-the-gif.html">History of the GIF</a></li>
+            <li><a href="/articles/the-ultimate-guide-to-animated-stickers.html">Sticker Design Guide</a></li>
+            <li><a href="/about.html">About GIFZO</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Compliance & Legal</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="/dmca.html">DMCA Policy</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 gifzo.lol • All Rights Reserved. Be Animated.</p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const canvas = document.getElementById('memeCanvas');
+    const ctx = canvas.getContext('2d');
+    const topTextInput = document.getElementById('topText');
+    const bottomTextInput = document.getElementById('bottomText');
+    const fontSizeInput = document.getElementById('fontSize');
+    const fontSizeDisplay = document.getElementById('fontSizeDisplay');
+    const textColorInput = document.getElementById('textColor');
+    const captionStyleInput = document.getElementById('captionStyle');
+    const imageUpload = document.getElementById('imageUpload');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    let currentImg = new Image();
+    currentImg.crossOrigin = 'anonymous';
+
+    const PRESET_URLS = {
+      puppy: '/puppy.gif',
+      synth: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&auto=format&fit=crop&q=80',
+      cat: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=800&auto=format&fit=crop&q=80',
+      coffee: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=80'
+    };
+
+    function loadTemplate(url) {
+      currentImg.src = url;
+      currentImg.onload = () => {
+        renderMeme();
+      };
+    }
+
+    // Default template
+    loadTemplate(PRESET_URLS.puppy);
+
+    document.querySelectorAll('.preset-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const key = chip.getAttribute('data-img');
+        if (PRESET_URLS[key]) {
+          loadTemplate(PRESET_URLS[key]);
+        }
+      });
+    });
+
+    imageUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          loadTemplate(event.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    fontSizeInput.addEventListener('input', () => {
+      fontSizeDisplay.textContent = fontSizeInput.value;
+      renderMeme();
+    });
+
+    [topTextInput, bottomTextInput, textColorInput, captionStyleInput].forEach(el => {
+      el.addEventListener('input', renderMeme);
+    });
+
+    function wrapText(context, text, x, y, maxWidth, lineHeight, stroke) {
+      const words = text.split(' ');
+      let line = '';
+      const lines = [];
+
+      for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + ' ';
+        const metrics = context.measureText(testLine);
+        const testWidth = metrics.width;
+        if (testWidth > maxWidth && n > 0) {
+          lines.push(line);
+          line = words[n] + ' ';
+        } else {
+          line = testLine;
+        }
+      }
+      lines.push(line);
+
+      for (let k = 0; k < lines.length; k++) {
+        if (stroke) {
+          context.strokeText(lines[k].trim(), x, y + (k * lineHeight));
+        }
+        context.fillText(lines[k].trim(), x, y + (k * lineHeight));
+      }
+    }
+
+    function renderMeme() {
+      if (!currentImg.width) return;
+
+      const maxDim = 800;
+      let w = currentImg.width;
+      let h = currentImg.height;
+
+      if (w > maxDim || h > maxDim) {
+        if (w > h) {
+          h = Math.round((h * maxDim) / w);
+          w = maxDim;
+        } else {
+          w = Math.round((w * maxDim) / h);
+          h = maxDim;
+        }
+      }
+
+      const style = captionStyleInput.value;
+      const headerExtra = style === 'headerBar' ? 90 : 0;
+
+      canvas.width = w;
+      canvas.height = h + headerExtra;
+
+      // Draw background / header bar if requested
+      if (style === 'headerBar') {
+        ctx.fillStyle = '#0e0e12';
+        ctx.fillRect(0, 0, w, headerExtra);
+        ctx.drawImage(currentImg, 0, headerExtra, w, h);
+      } else {
+        ctx.drawImage(currentImg, 0, 0, w, h);
+      }
+
+      const fSize = parseInt(fontSizeInput.value, 10);
+      const topVal = topTextInput.value.trim();
+      const bottomVal = bottomTextInput.value.trim();
+
+      ctx.textAlign = 'center';
+
+      if (style === 'classic') {
+        ctx.font = `900 ${fSize}px Impact, "Arial Black", sans-serif`;
+        ctx.fillStyle = textColorInput.value;
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = Math.max(3, Math.round(fSize / 10));
+        ctx.lineJoin = 'round';
+
+        if (topVal) {
+          wrapText(ctx, topVal.toUpperCase(), w / 2, fSize + 12, w - 40, fSize * 1.15, true);
+        }
+        if (bottomVal) {
+          wrapText(ctx, bottomVal.toUpperCase(), w / 2, canvas.height - 30, w - 40, fSize * 1.15, true);
+        }
+      } else if (style === 'headerBar') {
+        ctx.font = `700 ${Math.min(fSize, 28)}px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
+        ctx.fillStyle = '#ffffff';
+        if (topVal) {
+          wrapText(ctx, topVal, w / 2, 40, w - 30, 32, false);
+        }
+        if (bottomVal) {
+          ctx.font = `900 ${fSize}px Impact, sans-serif`;
+          ctx.fillStyle = textColorInput.value;
+          ctx.strokeStyle = '#000000';
+          ctx.lineWidth = 4;
+          wrapText(ctx, bottomVal.toUpperCase(), w / 2, canvas.height - 24, w - 40, fSize * 1.15, true);
+        }
+      } else if (style === 'subtitles') {
+        ctx.font = `600 ${Math.min(fSize, 32)}px Arial, sans-serif`;
+        ctx.fillStyle = '#ffdf00';
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 4;
+        if (bottomVal || topVal) {
+          const txt = bottomVal || topVal;
+          wrapText(ctx, txt, w / 2, canvas.height - 36, w - 50, 36, true);
+        }
+      }
+    }
+
+    downloadBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = 'gifzo-meme-' + Date.now() + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  </script>
+</body>
+</html>
