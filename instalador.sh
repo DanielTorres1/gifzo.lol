@@ -51,3 +51,8 @@ bash instalar.sh
 cd ..
 
 
+git clone https://token@github.com/DanielTorres1/Recon.git
+cd Recon
+bash instalar.sh
+cd ..
+
